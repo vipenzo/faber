@@ -50,25 +50,18 @@
           :view/initial-state (fn [_ source]
                                 {:model-source source})
           :view/did-mount     (fn [this source]
-                                (let [textarea (.getElementById js/document "codearea")]
-                                  (.log js/console "textarea:" textarea)
-                                  (fromTextArea textarea #js {
-                                                                                                :lineNumbers true,
-                                                                                                :mode        "clojure"
-                                                                                                })
+                                (let [textarea (.getElementById js/document "codearea")
+                                      codearea (fromTextArea textarea #js {:lineNumbers true,
+                                                                           :mode        "clojure"})]
+                                  (d/transact! [[:db/add :global :codearea codearea]])
+                                  (d/transact! [[:db/add :global :result-set-fn (partial swap! (:view/state this) assoc :result)]])
                                   (eval-str source (partial swap! (:view/state this) assoc :result))))}
          [{:keys [:view/state]}]
          (let [{:keys [model-source result]} @state]
            [:div.bg-near-white.h-100.flex
-            [:textarea#codearea.h-100.w-50.f6.bg-near-white.monospace
-               {:value     (:model-source @state)
-                :style     {:height (str (+ 1.75 (* 1.3125 (count (re-seq #"\n|\r\n" model-source)))) "rem")}
-                :on-change #(let [source (.. % -target -value)]
-                              (println "source:" source)
-                              (swap! state assoc :model-source source)
-                              (let [res (eval-str source (partial swap! state assoc :result))]
-                                (println "res:" res)
-                                res))}]
+            [:div.h-100.w-50
+             [:textarea#codearea.f6.bg-near-white.monospace
+              {:default-value (:model-source @state)}]]
             (let [{:keys [error value]} result]
               [:.w-50
                (if error (element [:.pa3.bg-washed-red
@@ -79,6 +72,24 @@
                          [:.pa3 (views/format-value value)])])]))
 
 
+(defn generate-model []
+  (let [codearea (d/get :global :codearea)
+        code (.getValue codearea)]
+    (.log js/console "Value:" code)
+    (eval-str code (fn [res]
+                     ((d/get :global :result-set-fn) res)
+                     )
+              )
+
+    )
+  )
+
+(defview toolbar []
+         [:div
+          [:a.f6.link.dim.ba.bw1.ph3.pv2.mb2.dib.purple {:on-click (fn [] (generate-model))} "Generate"]
+          ]
+         )
+
 (defview main-page
   "Root view for the page"
   []
@@ -86,6 +97,7 @@
     "Loading..."
     [:div.h-100
      [:h1 "Faber"]
+     (toolbar)
      [:div.monospace.f6.h-75
       (model-editor "(+ 4 5)")
       [:div.h-25
