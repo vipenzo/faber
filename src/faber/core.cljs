@@ -9,12 +9,12 @@
     [re-view.core :as v :refer [defview]]
     [re-view.hiccup.core :refer [element]]
 
-
+    [faber.canvas3d :refer [canvas3d is3dmodel? create-scene]]
     ;; things to eval and display
-    [lark.value-viewer.core :as views]
+    ;[lark.value-viewer.core :as views]
     [re-db.d :as d]
     [re-db.patterns :as patterns]
-    [cells.cell :as cell]
+    ;[cells.cell :as cell]
     [shapes.core :as shapes]
     [thi.ng.geom.svg.core :as svg]
 
@@ -44,6 +44,38 @@
      :ns   (symbol "faber.user")}
     cb))
 
+(defn format-value [value]
+  (str value))
+
+(defn visible-pane? [visible]
+  {:style {:display (if visible "block" "none")}})
+
+(defview error-pane
+         [{{:keys [visible value]} :view/props}]
+
+         (println "render error-pane visible=" visible " value=" value )
+         [:div (visible-pane? visible)
+          (if (instance? js/Error (:error value))
+            (element [:.pa3.bg-washed-red
+                      [:.b (ex-message (:error value))]
+                      [:div (str (ex-data (:error value)))]
+                      (pr-str (ex-cause (:error value)))
+                      ])
+            [:p (str "Error: " value)])])
+
+(defview result-pane
+         [{{:keys [visible value]} :view/props}]
+         (println "render result-pane visible=" visible " value=" value )
+         (element [:.pa3.bg-washed-green (visible-pane? visible)
+                   [:b "Result:"]
+                   [:.pa3 (format-value value)]]))
+
+(defview canvas3d-pane
+         [{{:keys [visible value]} :view/props}]
+         (println "render 3d-pane visible=" visible " value=" value )
+         [:div (visible-pane? visible)
+          (canvas3d value)]
+         )
 ;; Views
 (defview model-editor
          {:key                (fn [_ source] source)
@@ -53,56 +85,88 @@
                                 (let [textarea (.getElementById js/document "codearea")
                                       codearea (fromTextArea textarea #js {:lineNumbers true,
                                                                            :mode        "clojure"})]
-                                  (d/transact! [[:db/add :global :codearea codearea]])
-                                  (d/transact! [[:db/add :global :result-set-fn (partial swap! (:view/state this) assoc :result)]])
+                                  (d/transact! [[:db/add :editor :codearea codearea]])
+                                  ;(d/transact! [[:db/add :editor :result-set-fn (partial swap! (:view/state this) assoc :result)]])
                                   (eval-str source (partial swap! (:view/state this) assoc :result))))}
          [{:keys [:view/state]}]
          (let [{:keys [model-source result]} @state]
-           [:div.bg-near-white.h-100.flex
-            [:div.h-100.w-50
-             [:textarea#codearea.f6.bg-near-white.monospace
-              {:default-value (:model-source @state)}]]
-            (let [{:keys [error value]} result]
-              [:.w-50
-               (if error (element [:.pa3.bg-washed-red
-                                   [:.b (ex-message error)]
-                                   [:div (str (ex-data error))]
-                                   (pr-str (ex-cause error))
-                                   ])
-                         [:.pa3 (views/format-value value)])])]))
+            [:textarea#codearea.f6.bg-near-white.monospace
+             (:model-source @state)]
+           ))
 
 
-(defn generate-model []
-  (let [codearea (d/get :global :codearea)
+(defview right-pane
+         {:view/initial-state (fn [_]
+                                {:current :result
+                                 :value "Pippone"})
+          :view/did-mount     (fn [this]
+                                (d/transact! [[:db/add :faber :right-pane this]])
+                                )}
+         [{:keys [:view/state]}]
+         (let [current (:current @state)
+               value (:value @state)
+               make-pane-value (fn [kind]
+                                 {:visible (= current kind) :value value})]
+           (println "render right-pane" "current=" current "value=" value)
+           [:div
+            (canvas3d-pane (make-pane-value :3d))
+            (result-pane (make-pane-value :result))
+            (error-pane (make-pane-value :error))]
+           )
+         )
+
+(defn parse-result [res]
+  (let [[kind value] (cond
+                       (:error res) [:error res]
+                       (:3dmodel (:value res)) [:3d (:value res)]
+                       true [:result (:value res)])
+        right-pane (d/get :faber :right-pane)]
+    (println "value=" value " kind=" kind)
+
+    (swap! (:view/state right-pane)
+           (fn [m]
+             (-> m
+                 (assoc :value value)
+                 (assoc :current kind))))
+    ;(v/flush!)
+    ))
+
+(defn compile []
+  (let [codearea (d/get :editor :codearea)
         code (.getValue codearea)]
     (.log js/console "Value:" code)
     (eval-str code (fn [res]
-                     ((d/get :global :result-set-fn) res)
-                     )
-              )
-
-    )
-  )
+                     (parse-result res)
+                     ;(create-scene (get-in res [:value :3dmodel]) )
+                     ))
+    ))
 
 (defview toolbar []
-         [:div
-          [:a.f6.link.dim.ba.bw1.ph3.pv2.mb2.dib.purple {:on-click (fn [] (generate-model))} "Generate"]
-          ]
-         )
+         [:div.mb5
+          [:a.f6.link.dim.ba.bw1.ph3.pv2.mb2.dib.purple {:on-click (fn [] (compile))} "Compile"]
+          ])
 
 (defview main-page
   "Root view for the page"
   []
-  (if-not (d/get ::eval-state :ready?)
-    "Loading..."
-    [:div.h-100
-     [:h1 "Faber"]
-     (toolbar)
-     [:div.monospace.f6.h-75
-      (model-editor "(+ 4 5)")
-      [:div.h-25
-       [:h2 "Save STL"]]
-      ]]))
+         (if-not (d/get ::eval-state :ready?)
+           "Loading..."
+           [:div.h-100
+            [:h1.f1 "Faber"]
+            (toolbar)
+            [:div.monospace.f6.h-75
+             [:div.bg-near-white.h-100.flex
+              [:div.h-100.w-50
+               (model-editor "{:a3dmodel [:cube]}")]
+              [:.w-50
+               (right-pane)
+               #_(let [current (d/get :right-pane :current)]
+                 (d/get :right-pane current))
+               ]]
+
+             [:div.h-25
+              [:h2 "Save STL"]]
+             ]]))
 
 (defonce _
          (boot/init c-state
@@ -112,32 +176,12 @@
                       (d/transact! [[:db/add ::eval-state :ready? true]]))))
 
 (defn render []
-  (.log js/console "codemirror:" fromTextArea)
+  (d/transact! [{:db/id :right-pane
+                 :3d      (canvas3d-pane)
+                 :error   (error-pane)
+                 :result  (result-pane)
+                 :current :result}])
+  ;(.log js/console "codemirror:" fromTextArea)
   (v/render-to-dom (main-page) "faber"))
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Protocol extensions to enable rendering of cells and shapes
-
-(extend-type cells.cell/Cell
-  cells.cell/ICellStore
-  (put-value! [this value]
-    (d/transact! [[:db/add :cells (name this) value]]))
-  (get-value [this]
-    (d/get :cells (name this)))
-  (invalidate! [this]
-    (patterns/invalidate! d/*db* :ea_ [:cells (name this)]))
-  lark.value-viewer.core/IView
-  (view [this] (cells.cell/view this)))
-
-(extend-protocol lark.value-viewer.core/IView
-  Var
-  (view [this] (@this)))
-
-(extend-type shapes/Shape
-  re-view.hiccup.core/IEmitHiccup
-  (to-hiccup [this] (shapes/to-hiccup this)))
-
-(extend-protocol cells.cell/IRenderHiccup
-  object
-  (render-hiccup [this] (re-view.hiccup.core/element this)))
