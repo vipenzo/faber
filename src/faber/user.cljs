@@ -14,7 +14,11 @@
                                             ;; are these internal only? -jar
                                             assure-shape-seq shape-bounds bounds shape->vector]]
             [re-view.core :include-macros true]
+            [faber.model :as m]
+            [faber.threejs-scene :refer [model]]
             #_[thi.ng.geom.svg.core :as svg]
 
             [cljs.js])
   (:require-macros [cells.cell :refer [defcell cell]]))
+
+(def peppe 55)

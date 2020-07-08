@@ -10,12 +10,32 @@
 
 (.log js/console "three=" three)
 
-(def ThreeBSP (csg three))
 
 (defn is3dmodel? [value] (:3dmodel value))
 
 (defonce context (atom {}))
 (defonce faber-scene (atom {}))
+
+(defn new-scene []
+  (let [
+        scene (three/Scene.)
+        light (three/DirectionalLight. 0xffffff)
+        ambient-light (three/AmbientLight. 0x90F020)
+        ]
+
+    (set! (.. light -position -x) 200)
+    (set! (.. light -position -y) 50)
+    (set! (.. light -position -z) 100)
+    (.normalize (. light -position))
+    (.add scene light)
+    (.add scene ambient-light)
+
+    (swap! context #(-> %
+                        (assoc :scene scene)
+                        (assoc :light light)
+                        (assoc :ambient-light ambient-light)
+                        ))))
+
 
 (defn init-context [canvas]
   (let [width (.-offsetWidth canvas)
@@ -63,41 +83,37 @@
     ))
 
 (defn animate []
-  (let [{:keys [:cube :sphere]} @faber-scene
-        ;{:keys [:stats]} @context
-        ]
-    ;(println "@faber-scene" @faber-scene)
-    ;(aset cube "rotation" "y" (+ 0.01 (.-y (.-rotation cube))))
-    ;(aset cube "rotation" "x" (+ 0.02 (.-x (.-rotation cube))))
-    ;
-    (comment aset sphere "position" "y"
-             (let [np (+ 0.01 (.-y (.-position sphere)))]
-               (if (< 2.5 np)
-                 -2.5
-                 np)))
-    (.requestAnimationFrame js/window animate)
-    (render)
-    ;(.update stats)
-    ))
+  ;(println "@faber-scene" @faber-scene)
+  ;(aset cube "rotation" "y" (+ 0.01 (.-y (.-rotation cube))))
+  ;(aset cube "rotation" "x" (+ 0.02 (.-x (.-rotation cube))))
+  ;
+  (.requestAnimationFrame js/window animate)
+  (render)
+  ;(.update stats)
+  )
 
 
 (def default-material (three/MeshPhongMaterial. (clj->js {:ambient 0x050505, :color 0x0033ff, :specular 0x555555, :shininess 30})))
 
-(defn apply-params [mesh {:keys [size position rotation scale] :or {size [1 1 1] position [0 0 0] rotation [0 0 0] scale [1 1 1]}}]
+(defn apply-params [mesh {:keys [size position rotation scale]
+                          :or {size [1 1 1]
+                               position [0 0 0]
+                               rotation [0 0 0]
+                               scale [1 1 1]}}]
   mesh)
 
-(declare obj->mesh)
 
-(defn make-cube [{:keys [size] :or {size [1 1 1]}}]
+
+#_(defn make-cube [{:keys [size] :or {size [1 1 1]}}]
   (let [[w h d] size]
     (three/Mesh. (three/BoxGeometry. w h d) default-material)))
 
-(defn make-sphere [{:keys [radius wsegs hsegs] :or {radius 1 wsegs 8 hsegs 6}}]
+#_(defn make-sphere [{:keys [radius wsegs hsegs] :or {radius 1 wsegs 8 hsegs 6}}]
   (three/Mesh. (three/SphereGeometry. radius wsegs hsegs) default-material))
 
 
 
-(defn make-difference [obj_a obj_b]
+#_(defn make-difference [obj_a obj_b]
   (let [mesh_a (obj->mesh obj_a)
         mesh_b (obj->mesh obj_b)
         csg_a (ThreeBSP. mesh_a)
@@ -107,42 +123,39 @@
     (.computeVertexNormals (. diff -geometry))
     diff))
 
-(defn obj->mesh [[primitive & params]]
-  (let [mesh (case primitive
-               :cube (apply make-cube params)
-               :sphere (apply make-sphere params)
-               :difference (apply make-difference params)
-               )]
-    (apply-params mesh params)
-    mesh)
-  )
+#_(defn clear-scene []
+  (swap! context assoc :scene (three/Scene.)))
 
+#_(defn add-mesh [mesh]
+  (let [{:keys [:scene]} @context]
+    (when mesh
+      (.add scene mesh))))
 
-(defn create-scene [model]
-  (let [{:keys [:scene]} @context
-        user-scene model
-        ]
-    (when user-scene
-      ;(println "user-scene" user-scene)
-      (.add scene (obj->mesh user-scene))
-      (reset! faber-scene user-scene))
-    )
-  ;(re-frame/dispatch [:app.events/scene-changed])
+(defn create-scene [mesh]
+  (println "create-scene mesh=" mesh)
+  ;(new-scene)
+  (let [{:keys [:scene]} @context]
+    (when mesh
+      (println "create scene" mesh)
+      ;(.add scene (three/Mesh. (three/BoxGeometry. 1 1 1) default-material))
+      (.add scene mesh)
+      ))
   (animate))
 
 
 
 (defview canvas3d
-         {:key             (fn [_ model] model)
+         {
           :view/did-mount  (fn [this _]
                              (let [canvas (v/dom-node this)]
+                               (println "canvas3d did-mount. " (:view/state this))
                                (init-context canvas)
-                               (create-scene (:3dmodel this))
+                               ;(create-scene (:3dmodel (:view/props this)))
                                ))
           :view/did-update (fn [this]
                              (println "did update:" (:view/props this))
                              (create-scene (:3dmodel (:view/props this)))
                              )}
-         [_]
+         []
          [:canvas#canvas3d.w-100.h-100]                     ;{:style {:display "none"}}
          )

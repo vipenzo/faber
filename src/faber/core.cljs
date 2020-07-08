@@ -9,7 +9,7 @@
     [re-view.core :as v :refer [defview]]
     [re-view.hiccup.core :refer [element]]
 
-    [faber.canvas3d :refer [canvas3d is3dmodel? create-scene]]
+    [faber.canvas3d :refer [canvas3d is3dmodel?]]
     ;; things to eval and display
     ;[lark.value-viewer.core :as views]
     [re-db.d :as d]
@@ -17,6 +17,9 @@
     ;[cells.cell :as cell]
     [shapes.core :as shapes]
     [thi.ng.geom.svg.core :as svg]
+
+    [faber.model :as m]
+    [faber.threejs-scene :refer [model]]
 
     [clojure.string :as string]))
 
@@ -74,6 +77,7 @@
          [{{:keys [visible value]} :view/props}]
          (println "render 3d-pane visible=" visible " value=" value )
          [:div (visible-pane? visible)
+          (println "(:3Dmodel value)=" (:3dmodel value))
           (canvas3d value)]
          )
 ;; Views
@@ -97,8 +101,8 @@
 
 (defview right-pane
          {:view/initial-state (fn [_]
-                                {:current :result
-                                 :value "Pippone"})
+                                {:current :3d
+                                 :value "press Run"})
           :view/did-mount     (fn [this]
                                 (d/transact! [[:db/add :faber :right-pane this]])
                                 )}
@@ -131,6 +135,7 @@
     ;(v/flush!)
     ))
 
+
 (defn compile []
   (let [codearea (d/get :editor :codearea)
         code (.getValue codearea)]
@@ -143,7 +148,7 @@
 
 (defview toolbar []
          [:div.mb5
-          [:a.f6.link.dim.ba.bw1.ph3.pv2.mb2.dib.purple {:on-click (fn [] (compile))} "Compile"]
+          [:a.f6.link.dim.ba.bw1.ph3.pv2.mb2.dib.purple {:on-click (fn [] (compile))} "Run"]
           ])
 
 (defview main-page
@@ -157,7 +162,7 @@
             [:div.monospace.f6.h-75
              [:div.bg-near-white.h-100.flex
               [:div.h-100.w-50
-               (model-editor "{:a3dmodel [:cube]}")]
+               (model-editor "(model (m/cube 1 1 1))")]
               [:.w-50
                (right-pane)
                #_(let [current (d/get :right-pane :current)]
@@ -176,10 +181,7 @@
                       (d/transact! [[:db/add ::eval-state :ready? true]]))))
 
 (defn render []
-  (d/transact! [{:db/id :right-pane
-                 :3d      (canvas3d-pane)
-                 :error   (error-pane)
-                 :result  (result-pane)
+  #_(d/transact! [{:db/id :right-pane
                  :current :result}])
   ;(.log js/console "codemirror:" fromTextArea)
   (v/render-to-dom (main-page) "faber"))
