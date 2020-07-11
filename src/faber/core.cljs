@@ -3,6 +3,10 @@
     ;; evaluate
     [cljs.js :as cljs]
     ["codemirror" :refer [fromTextArea] :as codemirror]
+    ["codemirror/mode/clojure/clojure"]
+    ["codemirror/addon/edit/closebrackets"]
+    ["codemirror/addon/edit/matchbrackets"]
+    ["parinfer-codemirror" :as parinfer]
     [shadow.cljs.bootstrap.browser :as boot]
 
     ;; view
@@ -56,7 +60,7 @@
 (defview error-pane
          [{{:keys [visible value]} :view/props}]
 
-         (println "render error-pane visible=" visible " value=" value )
+         (println "render error-pane visible=" visible " value=" value)
          [:div (visible-pane? visible)
           (if (instance? js/Error (:error value))
             (element [:.pa3.bg-washed-red
@@ -68,14 +72,14 @@
 
 (defview result-pane
          [{{:keys [visible value]} :view/props}]
-         (println "render result-pane visible=" visible " value=" value )
+         (println "render result-pane visible=" visible " value=" value)
          (element [:.pa3.bg-washed-green (visible-pane? visible)
                    [:b "Result:"]
                    [:.pa3 (format-value value)]]))
 
 (defview canvas3d-pane
          [{{:keys [visible value]} :view/props}]
-         (println "render 3d-pane visible=" visible " value=" value )
+         (println "render 3d-pane visible=" visible " value=" value)
          [:div (visible-pane? visible)
           (println "(:3Dmodel value)=" (:3dmodel value))
           (canvas3d value)]
@@ -87,22 +91,29 @@
                                 {:model-source source})
           :view/did-mount     (fn [this source]
                                 (let [textarea (.getElementById js/document "codearea")
-                                      codearea (fromTextArea textarea #js {:lineNumbers true,
-                                                                           :mode        "clojure"})]
+                                      codearea (fromTextArea textarea #js {:lineNumbers       true
+                                                                           :viewportMargin    js/Infinity
+                                                                           :matchBrackets     true
+                                                                           :closebrackets     true
+                                                                           :autofocus         true
+                                                                           :autoCloseBrackets true
+                                                                           :mode              "clojure"
+                                                                           })]
+                                  (.init parinfer codearea)
                                   (d/transact! [[:db/add :editor :codearea codearea]])
                                   ;(d/transact! [[:db/add :editor :result-set-fn (partial swap! (:view/state this) assoc :result)]])
                                   (eval-str source (partial swap! (:view/state this) assoc :result))))}
          [{:keys [:view/state]}]
          (let [{:keys [model-source result]} @state]
-            [:textarea#codearea.f6.bg-near-white.monospace
-             (:model-source @state)]
+           [:textarea#codearea.f6.bg-near-white.monospace
+            (:model-source @state)]
            ))
 
 
 (defview right-pane
          {:view/initial-state (fn [_]
                                 {:current :3d
-                                 :value "press Run"})
+                                 :value   "press Run"})
           :view/did-mount     (fn [this]
                                 (d/transact! [[:db/add :faber :right-pane this]])
                                 )}
@@ -151,9 +162,19 @@
           [:a.f6.link.dim.ba.bw1.ph3.pv2.mb2.dib.purple {:on-click (fn [] (compile))} "Run"]
           ])
 
+#_(def example "(model (map #(m/translate [% 0 0] (m/cube 0.1 1 1)) (range 5)))")
+#_(def example "(model
+               (m/rotate 10 [1 0 0] (cube 1 2 3)))")
+(def example "
+  (model
+    (with-fn 50
+      (union
+        (sphere 1)
+        (cube 0.5 1 3))))")
+
 (defview main-page
-  "Root view for the page"
-  []
+         "Root view for the page"
+         []
          (if-not (d/get ::eval-state :ready?)
            "Loading..."
            [:div.h-100
@@ -162,11 +183,11 @@
             [:div.monospace.f6.h-75
              [:div.bg-near-white.h-100.flex
               [:div.h-100.w-50
-               (model-editor "(model (m/cube 1 1 1))")]
+               (model-editor example)]
               [:.w-50
                (right-pane)
                #_(let [current (d/get :right-pane :current)]
-                 (d/get :right-pane current))
+                   (d/get :right-pane current))
                ]]
 
              [:div.h-25
@@ -176,13 +197,13 @@
 (defonce _
          (boot/init c-state
                     {:path         "/js/bootstrap"
-                     :load-on-init '#{faber.user }}
+                     :load-on-init '#{faber.user}}
                     (fn []
                       (d/transact! [[:db/add ::eval-state :ready? true]]))))
 
 (defn render []
-  #_(d/transact! [{:db/id :right-pane
-                 :current :result}])
+  #_(d/transact! [{:db/id   :right-pane
+                   :current :result}])
   ;(.log js/console "codemirror:" fromTextArea)
   (v/render-to-dom (main-page) "faber"))
 

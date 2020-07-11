@@ -133,7 +133,7 @@
 
 (defn create-scene [mesh]
   (println "create-scene mesh=" mesh)
-  ;(new-scene)
+  (new-scene)
   (let [{:keys [:scene]} @context]
     (when mesh
       (println "create scene" mesh)

@@ -3,8 +3,6 @@
             [faber.canvas3d :as canvas]))
 
 
-
-
 (defmulti makemesh
           (fn [[form & args]]
             (println "multi makemesh form=" form " args=" args)
@@ -26,6 +24,15 @@
   ;(println ":list (map makemesh args)=" (map makemesh args))
   (apply o3/union (map makemesh args)))
 
+(defmethod makemesh :union [[form & args]]
+  (makemesh args))
+
+(defmethod makemesh :difference [[form & args]]
+  (apply o3/difference (map makemesh args)))
+
+(defmethod makemesh :intersection [[form & args]]
+  (apply o3/intersection (map makemesh args)))
+
 
 (defmethod makemesh :cube [[form {:keys [x y z center]}]]
   (println "makemesh :cube form=" form " y=" y)
@@ -34,10 +41,10 @@
   ; TODO handle center
   )
 
-(defmethod makemesh :sphere [[form {:keys [x y z center]}]]
-  (println "makemesh :cube form=" form " y=" y)
-  (o3/cubo x y z)
-  ;(three/Mesh. (three/BoxGeometry. x y z) canvas/default-material)
+
+(defmethod makemesh :sphere [[form r]]
+  (o3/sphere r)
+
   ; TODO handle center
   )
 
@@ -47,6 +54,25 @@
   (let [mesh (apply makemesh block)]
     (println ":translate mesh=" mesh)
     (o3/translate mesh x y z)))
+
+(defmethod makemesh :rotatev [[form a v & block]]
+  (let [mesh (apply makemesh block)
+        [x y z] (mapv faber.model/deg->rad v)]
+    (o3/rotatev mesh 10 x y z)))
+
+(defmethod makemesh :rotatec [[form v & block]]
+  (let [mesh (apply makemesh block)
+        [x y z] (mapv faber.model/deg->rad v)]
+    (o3/rotatec mesh x y z)))
+
+(defmethod makemesh :with-fn [[form x & block]]
+  (o3/with-fn x (fn [] (apply makemesh block))))
+
+(defmethod makemesh :with-fa [[form x & block]]
+  (o3/with-fa x (fn [] (apply makemesh block))))
+
+(defmethod makemesh :with-fs [[form x & block]]
+  (o3/with-fs x (fn [] (apply makemesh block))))
 
 (defmethod makemesh :scale [[form [x y z] & block]]
   (let [mesh (apply makemesh block)]

@@ -1,8 +1,10 @@
 (ns faber.model
-  (:refer-clojure :exclude [import use])
+  ;(:refer-clojure :exclude [import use])
   (:require [clojure.walk :refer [postwalk]]
             ;[scad-clj.text :refer [text-parts]]
-            ))
+            )
+  )
+
 
 (def pi Math/PI)
 (def tau (* 2 pi))
@@ -15,36 +17,46 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; special variables
+(defn with-fn [x & block]
+  `(:with-fn ~x ~@block)
+  )
 
-(defn fa! [x]
-  `(:fa ~x))
+(defn with-fa [x & block]
+  `(:with-fa ~x ~@block)
+  )
 
-(defn fn! [x]
-  `(:fn ~x))
+(defn with-fs [x & block]
+  `(:with-fs ~x ~@block)
+  )
 
-(defn fs! [x]
-  `(:fs ~x))
 
-(def ^:dynamic *fa* false)
-(def ^:dynamic *fn* false)
-(def ^:dynamic *fs* false)
-(def ^:dynamic *center* true)
+(comment
+  ; couldn't make these macros work in the self hosted clojurescript
+  (defn fa! [x]
+    `(:fa ~x))
 
-(defn with-f* [f x block]
-  `(binding [~f ~x]
-     (postwalk identity (list ~@block))))
+  (defn fn! [x]
+    `(:fn ~x))
 
-(defmacro with-fa [x & block]
-  (with-f* 'scad-clj.model/*fa* x block))
+  (defn fs! [x]
+    `(:fs ~x))
 
-(defmacro with-fn [x & block]
-  (with-f* 'scad-clj.model/*fn* x block))
+  (def ^:dynamic *fa* false)
+  (def ^:dynamic *fn* false)
+  (def ^:dynamic *fs* false)
+  (def ^:dynamic *center* true)
 
-(defmacro with-fs [x & block]
-  (with-f* 'scad-clj.model/*fs* x block))
+  (defmacro with-fa [x & block]
+    (with-f* 'faber.model/*fa* x block))
 
-(defmacro with-center [x & block]
-  (with-f* 'scad-clj.model/*center* x block))
+  (defmacro with-fn [x & block]
+    (with-f* 'faber.model/*fn* x block))
+
+  (defmacro with-fs [x & block]
+    (with-f* 'faber.model/*fs* x block))
+
+  (defmacro with-center [x & block]
+    (with-f* 'faber.model/*center* x block)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Modifier
@@ -58,40 +70,42 @@
 (defn -* [& block] (modifier :* block))
 (defn -! [& block] (modifier :! block))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Include & call into Scad libraries
 
-(defn import [file]
-  `(:import ~file))
+(comment
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Include & call into Scad libraries
 
-(defn include [library]
-  `(:include {:library ~library}))
+  (defn import [file]
+    `(:import ~file))
 
-(defn use [library]
-  `(:use {:library ~library}))
+  (defn include [library]
+    `(:include {:library ~library}))
 
-(defn libraries [& {uses :use includes :include}]
-  (concat
-    (map use uses)
-    (map include includes)))
+  (defn use [library]
+    `(:use {:library ~library}))
 
-(defn call [function & args]
-  `(:call {:function ~(name function)} ~args))
+  (defn libraries [& {uses :use includes :include}]
+    (concat
+      (map use uses)
+      (map include includes)))
 
-(defn call-module [module & args]
-  `(:call-module-no-block {:module ~(name module)} ~args))
-(defn call-module-with-block [module & args]
-  `(:call-module-with-block {:module ~(name module)} ~args))
+  (defn call [function & args]
+    `(:call {:function ~(name function)} ~args))
+
+  (defn call-module [module & args]
+    `(:call-module-no-block {:module ~(name module)} ~args))
+  (defn call-module-with-block [module & args]
+    `(:call-module-with-block {:module ~(name module)} ~args)))
 (defn define-module [module & body]
   `(:define-module {:module ~(name module)} ~body))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 2D
 
-(defn square [x y & {:keys [center] :or {center *center*}}]
-  `(:square ~{:x x, :y y, :center center}))
+(defn square [x y]
+  `(:square ~{:x x, :y y}))
 
-(defn circle [r]
+#_(defn circle [r]
   (let [args (merge {:r r}
                     (if *fa* {:fa *fa*})
                     (if *fn* {:fn *fn*})
@@ -108,16 +122,12 @@
 ;; 3D
 
 (defn sphere [r]
-  (let [args (merge {:r r}
-                    (if *fa* {:fa *fa*})
-                    (if *fn* {:fn *fn*})
-                    (if *fs* {:fs *fs*}))]
-    `(:sphere ~args)))
+  `(:sphere ~r))
 
-(defn cube [x y z & {:keys [center] :or {center *center*}}]
-  `(:cube ~{:x x, :y y, :z z, :center center}))
+(defn cube [x y z]
+  `(:cube ~{:x x, :y y, :z z}))
 
-(defn cylinder [rs h & {:keys [center] :or {center *center*}}]
+#_(defn cylinder [rs h & {:keys [center] :or {center *center*}}]
   (let [fargs (merge (if *fa* {:fa *fa*})
                      (if *fn* {:fn *fn*})
                      (if *fs* {:fs *fs*}))]
@@ -147,7 +157,7 @@
 
 ; multi-arity can't have more than one signature with variable arity. '&'.
 (defn rotatev [a [x y z] & block]
-  `(:rotatev [~a [~x ~y ~z]] ~@block))
+  `(:rotatev ~a [~x ~y ~z] ~@block))
 
 (defn rotatec [[x y z] & block]
   `(:rotatec [~x ~y ~z] ~@block))
@@ -205,10 +215,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; other
 
-(defn extrude-linear [{:keys [height twist convexity center slices scale] :or {center *center*}} & block]
+#_(defn extrude-linear [{:keys [height twist convexity center slices scale] :or {center *center*}} & block]
   `(:extrude-linear {:height ~height :twist ~twist :convexity ~convexity :center ~center :slices ~slices :scale ~scale} ~@block))
 
-(defn extrude-rotate
+#_(defn extrude-rotate
   ([block]
    (let [args (if *fn* {:fn *fn*} {})]
      `(:extrude-rotate ~args ~block)))
@@ -217,7 +227,7 @@
                      (if *fn* {:fn *fn*} {}))]
      `(:extrude-rotate ~args ~block))))
 
-(defn surface [filepath & {:keys [convexity center invert] :or {center *center*}}]
+#_(defn surface [filepath & {:keys [convexity center invert] :or {center *center*}}]
   `(:surface ~{:filepath filepath :convexity convexity :center center :invert invert}))
 
 (defn projection [cut & block]
@@ -265,7 +275,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; extended
 
-(defn extrude-curve [{:keys [height radius angle n]} block]
+#_(defn extrude-curve [{:keys [height radius angle n]} block]
   (let [lim (Math/floor (/ n 2))
         phi (/ (/ angle (dec n)) 2)]
     (apply union

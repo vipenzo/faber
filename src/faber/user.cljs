@@ -1,10 +1,10 @@
 (ns faber.user
   (:require re-view.hiccup.core
-            [cells.cell :refer [cell]]
-            [cells.lib :as cell
+            #_[cells.cell :refer [cell]]
+            #_[cells.lib :as cell
              :refer [interval timeout fetch geo-location with-view]
              :refer-macros [wait]]
-            [shapes.core :as shapes :refer [listen
+            #_[shapes.core :as shapes :refer [listen
                                             circle square rectangle triangle path text image
                                             position opacity rotate scale
                                             colorize stroke no-stroke fill no-fill
@@ -14,11 +14,14 @@
                                             ;; are these internal only? -jar
                                             assure-shape-seq shape-bounds bounds shape->vector]]
             [re-view.core :include-macros true]
-            [faber.model :as m]
+            [faber.model :as m
+             :refer [cube sphere translate scale union intersection difference with-fn with-fa with-fs
+                     rotate rotatev rotatec]]
             [faber.threejs-scene :refer [model]]
             #_[thi.ng.geom.svg.core :as svg]
 
             [cljs.js])
-  (:require-macros [cells.cell :refer [defcell cell]]))
+  #_(:require-macros #_[cells.cell :refer [defcell cell]]
+                   [faber.model :refer [with-fn]]))
 
-(def peppe 55)
+(def peppe (with-fn 5 (sphere 3)))
