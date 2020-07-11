@@ -27,6 +27,9 @@
 (defmethod makemesh :union [[form & args]]
   (makemesh args))
 
+(defmethod makemesh :hull [[form & args]]
+  (apply o3/hull (map makemesh args)))
+
 (defmethod makemesh :difference [[form & args]]
   (apply o3/difference (map makemesh args)))
 

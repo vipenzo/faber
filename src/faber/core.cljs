@@ -19,8 +19,9 @@
     [re-db.d :as d]
     [re-db.patterns :as patterns]
     ;[cells.cell :as cell]
-    [shapes.core :as shapes]
-    [thi.ng.geom.svg.core :as svg]
+    ;[shapes.core :as shapes]
+    ;[thi.ng.geom.svg.core :as svg]
+    ;[thi.ng.geom.mesh.csg :as csg]
 
     [faber.model :as m]
     [faber.threejs-scene :refer [model]]
@@ -165,12 +166,18 @@
 #_(def example "(model (map #(m/translate [% 0 0] (m/cube 0.1 1 1)) (range 5)))")
 #_(def example "(model
                (m/rotate 10 [1 0 0] (cube 1 2 3)))")
-(def example "
+#_(def example "
   (model
     (with-fn 50
       (union
         (sphere 1)
         (cube 0.5 1 3))))")
+(def example "
+  (model
+    (with-fn 50
+      (hull
+        (sphere 0.5)
+        (translate [0 1 0] (cube 0.5 1 3)))))")
 
 (defview main-page
          "Root view for the page"

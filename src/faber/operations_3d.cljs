@@ -1,7 +1,9 @@
 (ns faber.operations-3d
   (:require ["three" :as three]
-            ["three-js-csg" :as csg]))
+            ["three-js-csg" :as csg]
+            ["three/examples/jsm/geometries/ConvexGeometry" :as convex]))
 
+(def ComplexGeometry (.-ConvexGeometry convex))
 
 (def ThreeBSP (csg three))
 
@@ -34,6 +36,18 @@
     :default  8
     )
   )
+
+(defn hull [& args]
+  (println "hull args=" args)
+  (let [hull2 (fn [mesh_a mesh_b]
+                (let [tmp (three/Geometry.)]
+                  (.mergeMesh tmp mesh_a)
+                  (.mergeMesh tmp mesh_b)
+                  (.mergeVertices tmp)
+                  (three/Mesh. (ComplexGeometry. (.-vertices tmp)) default-material)))]
+    (cond
+      (= 1 (count args)) (first args)
+      :default (reduce hull2 args))))
 
 (defn sphere [radius]
   (println "Sphere radius=" radius)

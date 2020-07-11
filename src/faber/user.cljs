@@ -16,9 +16,9 @@
             [re-view.core :include-macros true]
             [faber.model :as m
              :refer [cube sphere translate scale union intersection difference with-fn with-fa with-fs
-                     rotate rotatev rotatec]]
+                     rotate rotatev rotatec hull]]
             [faber.threejs-scene :refer [model]]
-            #_[thi.ng.geom.svg.core :as svg]
+
 
             [cljs.js])
   #_(:require-macros #_[cells.cell :refer [defcell cell]]
