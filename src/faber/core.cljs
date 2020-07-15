@@ -202,7 +202,12 @@
         (sphere 0.5)
         (translate [0 1 0] (cube 0.5 1 3)))))")
 
-(def example "(model\n    (m/offset 2 (cube 1 1 1)))")
+#_(def example "(model\n    (m/offset 2 (cube 1 1 1)))")
+
+(def example "
+  (model
+    (with-fn 150
+        (cylinder [2 0.6] 1)))")
 
 (defview main-page
          "Root view for the page"

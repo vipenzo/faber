@@ -44,6 +44,13 @@
   ; TODO handle center
   )
 
+(defmethod makemesh :cylinder [[form h r r2]]
+  (println "makemesh :cylinder form=" form " h=" h " r=" r " r2=" r2)
+  (o3/cylinder h r r2)
+  ;(three/Mesh. (three/BoxGeometry. x y z) canvas/default-material)
+  ; TODO handle center
+  )
+
 
 (defmethod makemesh :sphere [[form r]]
   (o3/sphere r)

@@ -127,14 +127,11 @@
 (defn cube [x y z]
   `(:cube ~{:x x, :y y, :z z}))
 
-#_(defn cylinder [rs h & {:keys [center] :or {center *center*}}]
-  (let [fargs (merge (if *fa* {:fa *fa*})
-                     (if *fn* {:fn *fn*})
-                     (if *fs* {:fs *fs*}))]
-    (if (and (vector? rs) (= 2 (count rs)))
-      (let [[r1 r2] rs]
-        `(:cylinder ~(merge fargs {:h h, :r1 r1, :r2 r2, :center center}))))
-        `(:cylinder ~(merge fargs {:h h, :r rs, :center center}))))
+(defn cylinder [rs h]
+  (if (and (vector? rs) (= 2 (count rs)))
+    (let [[r1 r2] rs]
+      `(:cylinder ~h ~r1 ~r2))
+    `(:cylinder ~h ~rs)))
 
 (defn polyhedron
   ([points faces]

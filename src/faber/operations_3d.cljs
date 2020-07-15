@@ -59,6 +59,13 @@
     (println "segs=" segs)
     (three/Mesh. (three/SphereGeometry. radius segs segs) default-material)))
 
+(defn cylinder [h bottom-r top-r]
+  (let [top (if top-r
+              top-r
+              bottom-r)
+        segs (calc-number-of-segments (max bottom-r top-r))]
+    (three/Mesh. (three/CylinderGeometry. top-r bottom-r h segs) default-material)))
+
 (defn translate [mesh x y z]
   (set! (.-x (.-position mesh)) x)
   (set! (.-y (.-position mesh)) y)
