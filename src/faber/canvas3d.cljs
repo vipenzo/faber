@@ -92,15 +92,15 @@
   ;(.update stats)
   )
 
+(comment
+  (def default-material (three/MeshPhongMaterial. (clj->js {:ambient 0x050505, :color 0x0033ff, :specular 0x555555, :shininess 30})))
 
-(def default-material (three/MeshPhongMaterial. (clj->js {:ambient 0x050505, :color 0x0033ff, :specular 0x555555, :shininess 30})))
-
-(defn apply-params [mesh {:keys [size position rotation scale]
-                          :or {size [1 1 1]
-                               position [0 0 0]
-                               rotation [0 0 0]
-                               scale [1 1 1]}}]
-  mesh)
+  (defn apply-params [mesh {:keys [size position rotation scale]
+                            :or   {size     [1 1 1]
+                                   position [0 0 0]
+                                   rotation [0 0 0]
+                                   scale    [1 1 1]}}]
+    mesh))
 
 
 
@@ -131,6 +131,23 @@
     (when mesh
       (.add scene mesh))))
 
+(defn make-stl-blob []
+  (println "Make stl blob")
+  (if-let [mesh (:mesh @context)]
+    (let [_ (println "make-stl mesh=" mesh)
+          stl (.fromMesh exportSTL mesh)
+          blob (js/Blob. (js/Array. stl) {:type "text/plain"})]
+      (let [toolbar (d/get :faber :stlbutton)]
+        (println "update toolbar")
+        (swap! (:view/state toolbar) assoc :stl-blob blob))
+
+
+      ;(set! (.-href lnk) (.createObjectURL js/URL blob))
+      ;(set! (.-download lnk) @filename)
+
+      )))
+
+
 (defn create-scene [mesh]
   (println "create-scene mesh=" mesh)
   (new-scene)
@@ -138,6 +155,8 @@
     (when mesh
       (println "create scene" mesh)
       ;(.add scene (three/Mesh. (three/BoxGeometry. 1 1 1) default-material))
+      (swap! context assoc :mesh mesh)
+      (make-stl-blob)
       (.add scene mesh)
       ))
   (animate))
@@ -159,3 +178,5 @@
          []
          [:canvas#canvas3d.w-100.h-100]                     ;{:style {:display "none"}}
          )
+
+

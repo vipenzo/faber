@@ -13,7 +13,7 @@
     [re-view.core :as v :refer [defview]]
     [re-view.hiccup.core :refer [element]]
 
-    [faber.canvas3d :refer [canvas3d is3dmodel?]]
+    [faber.canvas3d :refer [canvas3d is3dmodel? make-stl-blob]]
     ;; things to eval and display
     ;[lark.value-viewer.core :as views]
     [re-db.d :as d]
@@ -132,7 +132,8 @@
          )
 
 (defn parse-result [res]
-  (let [[kind value] (cond
+  (let [toolbar (d/get :faber :stlbutton)
+        [kind value] (cond
                        (:error res) [:error res]
                        (:3dmodel (:value res)) [:3d (:value res)]
                        true [:result (:value res)])
@@ -145,6 +146,8 @@
                  (assoc :value value)
                  (assoc :current kind))))
     ;(v/flush!)
+    (if (not= kind :3d)
+      (swap! (:view/state toolbar) assoc :stl-blob nil))
     ))
 
 
@@ -158,9 +161,29 @@
                      ))
     ))
 
-(defview toolbar []
-         [:div.mb5
-          [:a.f6.link.dim.ba.bw1.ph3.pv2.mb2.dib.purple {:on-click (fn [] (compile))} "Run"]
+(defview stlsavebutton
+         {:view/initial-state (fn [_]
+                                {:stl-blob nil
+                                 })
+          :view/did-mount     (fn [this]
+                                (d/transact! [[:db/add :faber :stlbutton this]])
+                                )
+          :view/did-update    (fn [this]
+                                (println "toolbar did update:" (:view/state this))
+                                (if-let [blob (:stl-blob @(:view/state this))]
+                                  (let [node (v/dom-node this)]
+                                    (set! (.-href node) (.createObjectURL js/URL blob))
+                                    (set! (.-download node) "model.stl")
+                                    )))}
+         [{:keys [:view/state]}]
+         [:a.link.f6.dim.ba.bw1.ph3.pv2.ma3.dib.purple#stlsavebutton {:style {:display (if (:stl-blob @state) "inline-block" "none" )}} "Save STL"]
+         )
+
+(defview toolbar
+         []
+         [:div
+          [:a.f6.link.dim.ba.bw1.ph3.pv2.ma3.dib.purple {:on-click (fn [] (compile))} "Run"]
+          (stlsavebutton)
           ])
 
 #_(def example "(model (map #(m/translate [% 0 0] (m/cube 0.1 1 1)) (range 5)))")
@@ -199,8 +222,7 @@
                    (d/get :right-pane current))
                ]]
 
-             [:div.h-25
-              [:h2 "Save STL"]]
+
              ]]))
 
 (defonce _
