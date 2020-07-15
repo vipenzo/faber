@@ -172,12 +172,14 @@
       (union
         (sphere 1)
         (cube 0.5 1 3))))")
-(def example "
+#_(def example "
   (model
     (with-fn 50
       (hull
         (sphere 0.5)
         (translate [0 1 0] (cube 0.5 1 3)))))")
+
+(def example "(model\n    (m/offset 2 (cube 1 1 1)))")
 
 (defview main-page
          "Root view for the page"

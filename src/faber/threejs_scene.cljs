@@ -82,6 +82,9 @@
     (println ":scale mesh=" mesh)
     (o3/scale mesh x y z)))
 
+(defmethod makemesh :offset [[form options & block]]
+  (o3/offset options  (apply makemesh block)))
+
 
 (def pippo 34)
 

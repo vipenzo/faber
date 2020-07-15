@@ -2,6 +2,7 @@
                 ;[lark/cells "0.1.5"]
                 ;[lark/tools "0.1.19"]
                 ;[maria/shapes "0.1.0"]
+                [appliedscience/js-interop "0.2.4"]
                 [thi.ng/geom "0.0.908"]]
  :source-paths ["src"]
  :nrepl        {:port 8703}
