@@ -51,6 +51,12 @@
   ; TODO handle center
   )
 
+(defmethod makemesh :polyhedron [[form points faces]]
+  (o3/polyhedron points faces)
+  ;(three/Mesh. (three/BoxGeometry. x y z) canvas/default-material)
+  ; TODO handle center
+  )
+
 
 (defmethod makemesh :sphere [[form r]]
   (o3/sphere r)

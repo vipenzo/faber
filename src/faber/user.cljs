@@ -16,7 +16,7 @@
             [re-view.core :include-macros true]
             [faber.model :as m
              :refer [cube sphere translate scale union intersection difference with-fn with-fa with-fs
-                     rotate rotatev rotatec hull offset cylinder]]
+                     rotate rotatev rotatec hull offset cylinder polyhedron]]
             [faber.threejs-scene :refer [model]]
 
 

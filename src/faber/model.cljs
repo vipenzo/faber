@@ -134,10 +134,8 @@
     `(:cylinder ~h ~rs)))
 
 (defn polyhedron
-  ([points faces]
-   `(:polyhedron {:points ~points :faces ~faces}))
-  ([points faces & {:keys [convexity]}]
-   `(:polyhedron {:points ~points :faces ~faces :convexity ~convexity})))
+  [points faces]
+  `(:polyhedron ~points ~faces))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; transformations

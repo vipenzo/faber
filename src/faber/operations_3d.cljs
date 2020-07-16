@@ -222,3 +222,38 @@
   (let [meshsize (mesh-size-from-bounding-box mesh)
         factor  (mapv #(/ (+ % r) %) meshsize)]
     (apply scale mesh factor)))
+
+(comment
+  (let [
+        cm (cube 1 2 2)
+        cg (j/get cm :geometry)
+        cv (mapv (fn [v]
+                   (let [{:keys [x y z]} (j/lookup v)]
+                     [x y z])
+                   ) (j/get cg :vertices))
+        _ (println "cv=" cv)
+        vertices (clj->js (mapv (fn [[x y z]] (three/Vector3. x y z)) cv))
+        cf (mapv (fn [f]
+                   (let [{:keys [a b c]} (j/lookup f)]
+                     [a b c])
+                   ) (j/get cg :faces))
+        _ (println "cf=" cf)
+        triangles (clj->js (mapv (fn [[a b c]] (three/Face3. a b c)) cf))]
+    )
+  )
+
+
+(defn polyhedron [points faces]
+  (if (some #(> (count %) 3) faces)
+    (println "only triangles for now, sorry")
+    (let [vertices (clj->js (mapv (fn [[x y z]] (three/Vector3. x y z)) points))
+          triangles (clj->js (mapv (fn [[a b c]] (three/Face3. a b c)) faces))
+          g (three/Geometry.)]
+      (j/assoc! g :vertices vertices)
+      (j/assoc! g :faces triangles)
+      ;(j/assoc! g :verticesNeedUpdate true)
+      ;(j/assoc! g :elementsNeedUpdate true)
+      (j/call g :computeFaceNormals)
+      (three/Mesh. g default-material)
+      ))
+  )
