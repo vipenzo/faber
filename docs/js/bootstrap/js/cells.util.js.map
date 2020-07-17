@@ -1,0 +1,1 @@
+{"version":3,"sources":["cells/util.cljc"],"mappings":";AAGA,AAAA,AAAMA;AAAN,AACW,AAACC","names":["cells.util/unique-id","cljs-uuid-utils.core/make-random-uuid"],"sourcesContent":["(ns cells.util\n  #?(:cljs (:require [cljs-uuid-utils.core :as uuid-utils])))\n\n(defn unique-id []\n  #?(:cljs (uuid-utils/make-random-uuid)\n     :clj  (str (java.util.UUID/randomUUID))))\n\n"]}
