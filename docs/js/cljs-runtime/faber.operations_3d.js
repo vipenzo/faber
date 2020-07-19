@@ -12,33 +12,33 @@ faber.operations_3d._STAR_fa_STAR_ = false;
 faber.operations_3d._STAR_fn_STAR_ = false;
 faber.operations_3d._STAR_fs_STAR_ = false;
 faber.operations_3d.with_fn = (function faber$operations_3d$with_fn(x,f){
-var _STAR_fn_STAR__orig_val__27021 = faber.operations_3d._STAR_fn_STAR_;
-var _STAR_fn_STAR__temp_val__27022 = x;
-(faber.operations_3d._STAR_fn_STAR_ = _STAR_fn_STAR__temp_val__27022);
+var _STAR_fn_STAR__orig_val__54433 = faber.operations_3d._STAR_fn_STAR_;
+var _STAR_fn_STAR__temp_val__54434 = x;
+(faber.operations_3d._STAR_fn_STAR_ = _STAR_fn_STAR__temp_val__54434);
 
 try{return (f.cljs$core$IFn$_invoke$arity$0 ? f.cljs$core$IFn$_invoke$arity$0() : f.call(null));
-}finally {(faber.operations_3d._STAR_fn_STAR_ = _STAR_fn_STAR__orig_val__27021);
+}finally {(faber.operations_3d._STAR_fn_STAR_ = _STAR_fn_STAR__orig_val__54433);
 }});
 faber.operations_3d.with_fa = (function faber$operations_3d$with_fa(x,f){
-var _STAR_fa_STAR__orig_val__27023 = faber.operations_3d._STAR_fa_STAR_;
-var _STAR_fa_STAR__temp_val__27024 = x;
-(faber.operations_3d._STAR_fa_STAR_ = _STAR_fa_STAR__temp_val__27024);
+var _STAR_fa_STAR__orig_val__54435 = faber.operations_3d._STAR_fa_STAR_;
+var _STAR_fa_STAR__temp_val__54436 = x;
+(faber.operations_3d._STAR_fa_STAR_ = _STAR_fa_STAR__temp_val__54436);
 
 try{return (f.cljs$core$IFn$_invoke$arity$0 ? f.cljs$core$IFn$_invoke$arity$0() : f.call(null));
-}finally {(faber.operations_3d._STAR_fa_STAR_ = _STAR_fa_STAR__orig_val__27023);
+}finally {(faber.operations_3d._STAR_fa_STAR_ = _STAR_fa_STAR__orig_val__54435);
 }});
 faber.operations_3d.with_fs = (function faber$operations_3d$with_fs(x,f){
-var _STAR_fs_STAR__orig_val__27025 = faber.operations_3d._STAR_fs_STAR_;
-var _STAR_fs_STAR__temp_val__27026 = x;
-(faber.operations_3d._STAR_fs_STAR_ = _STAR_fs_STAR__temp_val__27026);
+var _STAR_fs_STAR__orig_val__54437 = faber.operations_3d._STAR_fs_STAR_;
+var _STAR_fs_STAR__temp_val__54438 = x;
+(faber.operations_3d._STAR_fs_STAR_ = _STAR_fs_STAR__temp_val__54438);
 
 try{return (f.cljs$core$IFn$_invoke$arity$0 ? f.cljs$core$IFn$_invoke$arity$0() : f.call(null));
-}finally {(faber.operations_3d._STAR_fs_STAR_ = _STAR_fs_STAR__orig_val__27025);
+}finally {(faber.operations_3d._STAR_fs_STAR_ = _STAR_fs_STAR__orig_val__54437);
 }});
 faber.operations_3d.cube = (function faber$operations_3d$cube(x,y,z){
-var vec__27027 = (((((y == null)) || ((z == null))))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [x,x], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [y,z], null));
-var y__$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__27027,(0),null);
-var z__$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__27027,(1),null);
+var vec__54439 = (((((y == null)) || ((z == null))))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [x,x], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [y,z], null));
+var y__$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54439,(0),null);
+var z__$1 = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54439,(1),null);
 return (new module$node_modules$three$build$three.Mesh((new module$node_modules$three$build$three.BoxGeometry(x,y__$1,z__$1)),faber.operations_3d.default_material));
 });
 faber.operations_3d.calc_number_of_segments = (function faber$operations_3d$calc_number_of_segments(radius){
@@ -65,14 +65,14 @@ return (8);
 });
 faber.operations_3d.hull = (function faber$operations_3d$hull(var_args){
 var args__4742__auto__ = [];
-var len__4736__auto___27217 = arguments.length;
-var i__4737__auto___27218 = (0);
+var len__4736__auto___54661 = arguments.length;
+var i__4737__auto___54662 = (0);
 while(true){
-if((i__4737__auto___27218 < len__4736__auto___27217)){
-args__4742__auto__.push((arguments[i__4737__auto___27218]));
+if((i__4737__auto___54662 < len__4736__auto___54661)){
+args__4742__auto__.push((arguments[i__4737__auto___54662]));
 
-var G__27220 = (i__4737__auto___27218 + (1));
-i__4737__auto___27218 = G__27220;
+var G__54663 = (i__4737__auto___54662 + (1));
+i__4737__auto___54662 = G__54663;
 continue;
 } else {
 }
@@ -107,9 +107,9 @@ return cljs.core.reduce.cljs$core$IFn$_invoke$arity$2(hull2,args);
 (faber.operations_3d.hull.cljs$lang$maxFixedArity = (0));
 
 /** @this {Function} */
-(faber.operations_3d.hull.cljs$lang$applyTo = (function (seq27030){
+(faber.operations_3d.hull.cljs$lang$applyTo = (function (seq54446){
 var self__4724__auto__ = this;
-return self__4724__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq27030));
+return self__4724__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq54446));
 }));
 
 faber.operations_3d.sphere = (function faber$operations_3d$sphere(radius){
@@ -165,22 +165,22 @@ faber.operations_3d.rotatev = (function faber$operations_3d$rotatev(mesh,a,x,y,z
 return mesh;
 });
 faber.operations_3d.csg_op = (function faber$operations_3d$csg_op(var_args){
-var G__27043 = arguments.length;
-switch (G__27043) {
+var G__54497 = arguments.length;
+switch (G__54497) {
 case 3:
 return faber.operations_3d.csg_op.cljs$core$IFn$_invoke$arity$3((arguments[(0)]),(arguments[(1)]),(arguments[(2)]));
 
 break;
 default:
 var args_arr__4757__auto__ = [];
-var len__4736__auto___27243 = arguments.length;
-var i__4737__auto___27244 = (0);
+var len__4736__auto___54665 = arguments.length;
+var i__4737__auto___54666 = (0);
 while(true){
-if((i__4737__auto___27244 < len__4736__auto___27243)){
-args_arr__4757__auto__.push((arguments[i__4737__auto___27244]));
+if((i__4737__auto___54666 < len__4736__auto___54665)){
+args_arr__4757__auto__.push((arguments[i__4737__auto___54666]));
 
-var G__27247 = (i__4737__auto___27244 + (1));
-i__4737__auto___27244 = G__27247;
+var G__54667 = (i__4737__auto___54666 + (1));
+i__4737__auto___54666 = G__54667;
 continue;
 } else {
 }
@@ -221,25 +221,25 @@ return meshes;
 }));
 
 /** @this {Function} */
-(faber.operations_3d.csg_op.cljs$lang$applyTo = (function (seq27038){
-var G__27039 = cljs.core.first(seq27038);
-var seq27038__$1 = cljs.core.next(seq27038);
+(faber.operations_3d.csg_op.cljs$lang$applyTo = (function (seq54493){
+var G__54494 = cljs.core.first(seq54493);
+var seq54493__$1 = cljs.core.next(seq54493);
 var self__4723__auto__ = this;
-return self__4723__auto__.cljs$core$IFn$_invoke$arity$variadic(G__27039,seq27038__$1);
+return self__4723__auto__.cljs$core$IFn$_invoke$arity$variadic(G__54494,seq54493__$1);
 }));
 
 (faber.operations_3d.csg_op.cljs$lang$maxFixedArity = 3);
 
 faber.operations_3d.difference = (function faber$operations_3d$difference(var_args){
 var args__4742__auto__ = [];
-var len__4736__auto___27259 = arguments.length;
-var i__4737__auto___27260 = (0);
+var len__4736__auto___54668 = arguments.length;
+var i__4737__auto___54669 = (0);
 while(true){
-if((i__4737__auto___27260 < len__4736__auto___27259)){
-args__4742__auto__.push((arguments[i__4737__auto___27260]));
+if((i__4737__auto___54669 < len__4736__auto___54668)){
+args__4742__auto__.push((arguments[i__4737__auto___54669]));
 
-var G__27261 = (i__4737__auto___27260 + (1));
-i__4737__auto___27260 = G__27261;
+var G__54670 = (i__4737__auto___54669 + (1));
+i__4737__auto___54669 = G__54670;
 continue;
 } else {
 }
@@ -259,21 +259,21 @@ return a.subtract(b);
 (faber.operations_3d.difference.cljs$lang$maxFixedArity = (0));
 
 /** @this {Function} */
-(faber.operations_3d.difference.cljs$lang$applyTo = (function (seq27045){
+(faber.operations_3d.difference.cljs$lang$applyTo = (function (seq54502){
 var self__4724__auto__ = this;
-return self__4724__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq27045));
+return self__4724__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq54502));
 }));
 
 faber.operations_3d.intersection = (function faber$operations_3d$intersection(var_args){
 var args__4742__auto__ = [];
-var len__4736__auto___27265 = arguments.length;
-var i__4737__auto___27266 = (0);
+var len__4736__auto___54671 = arguments.length;
+var i__4737__auto___54672 = (0);
 while(true){
-if((i__4737__auto___27266 < len__4736__auto___27265)){
-args__4742__auto__.push((arguments[i__4737__auto___27266]));
+if((i__4737__auto___54672 < len__4736__auto___54671)){
+args__4742__auto__.push((arguments[i__4737__auto___54672]));
 
-var G__27267 = (i__4737__auto___27266 + (1));
-i__4737__auto___27266 = G__27267;
+var G__54673 = (i__4737__auto___54672 + (1));
+i__4737__auto___54672 = G__54673;
 continue;
 } else {
 }
@@ -293,21 +293,21 @@ return a.intersect(b);
 (faber.operations_3d.intersection.cljs$lang$maxFixedArity = (0));
 
 /** @this {Function} */
-(faber.operations_3d.intersection.cljs$lang$applyTo = (function (seq27046){
+(faber.operations_3d.intersection.cljs$lang$applyTo = (function (seq54511){
 var self__4724__auto__ = this;
-return self__4724__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq27046));
+return self__4724__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq54511));
 }));
 
 faber.operations_3d.union = (function faber$operations_3d$union(var_args){
 var args__4742__auto__ = [];
-var len__4736__auto___27269 = arguments.length;
-var i__4737__auto___27270 = (0);
+var len__4736__auto___54674 = arguments.length;
+var i__4737__auto___54675 = (0);
 while(true){
-if((i__4737__auto___27270 < len__4736__auto___27269)){
-args__4742__auto__.push((arguments[i__4737__auto___27270]));
+if((i__4737__auto___54675 < len__4736__auto___54674)){
+args__4742__auto__.push((arguments[i__4737__auto___54675]));
 
-var G__27275 = (i__4737__auto___27270 + (1));
-i__4737__auto___27270 = G__27275;
+var G__54676 = (i__4737__auto___54675 + (1));
+i__4737__auto___54675 = G__54676;
 continue;
 } else {
 }
@@ -327,75 +327,75 @@ return a.union(b);
 (faber.operations_3d.union.cljs$lang$maxFixedArity = (0));
 
 /** @this {Function} */
-(faber.operations_3d.union.cljs$lang$applyTo = (function (seq27051){
+(faber.operations_3d.union.cljs$lang$applyTo = (function (seq54518){
 var self__4724__auto__ = this;
-return self__4724__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq27051));
+return self__4724__auto__.cljs$core$IFn$_invoke$arity$variadic(cljs.core.seq(seq54518));
 }));
 
 faber.operations_3d.v_from_js = (function faber$operations_3d$v_from_js(v3){
-var map__27052 = applied_science.js_interop.lookup(v3);
-var map__27052__$1 = (((((!((map__27052 == null))))?(((((map__27052.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__27052.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__27052):map__27052);
-var x = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__27052__$1,new cljs.core.Keyword(null,"x","x",2099068185));
-var y = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__27052__$1,new cljs.core.Keyword(null,"y","y",-1757859776));
-var z = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__27052__$1,new cljs.core.Keyword(null,"z","z",-789527183));
+var map__54530 = applied_science.js_interop.lookup(v3);
+var map__54530__$1 = (((((!((map__54530 == null))))?(((((map__54530.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__54530.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__54530):map__54530);
+var x = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54530__$1,new cljs.core.Keyword(null,"x","x",2099068185));
+var y = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54530__$1,new cljs.core.Keyword(null,"y","y",-1757859776));
+var z = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54530__$1,new cljs.core.Keyword(null,"z","z",-789527183));
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [x,y,z], null);
 });
 faber.operations_3d.dumpv = (function faber$operations_3d$dumpv(v){
-var vec__27056 = cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__27055_SHARP_){
-var obj27060 = v;
-var k27061 = applied_science.js_interop.impl.wrap_key(p1__27055_SHARP_);
-if((function (){var obj27062 = obj27060;
-return (((!((obj27062 == null)))) && (applied_science.js_interop.impl.in_QMARK__STAR_(k27061,obj27062)));
+var vec__54557 = cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__54545_SHARP_){
+var obj54561 = v;
+var k54562 = applied_science.js_interop.impl.wrap_key(p1__54545_SHARP_);
+if((function (){var obj54565 = obj54561;
+return (((!((obj54565 == null)))) && (applied_science.js_interop.impl.in_QMARK__STAR_(k54562,obj54565)));
 })()){
-return (obj27060[k27061]);
+return (obj54561[k54562]);
 } else {
 return undefined;
 }
 }),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"x","x",2099068185),new cljs.core.Keyword(null,"y","y",-1757859776),new cljs.core.Keyword(null,"z","z",-789527183)], null));
-var x = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__27056,(0),null);
-var y = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__27056,(1),null);
-var z = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__27056,(2),null);
+var x = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54557,(0),null);
+var y = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54557,(1),null);
+var z = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54557,(2),null);
 return cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["x=",x," y=",y," z=",z], 0));
 });
 faber.operations_3d.to_mygeo = (function faber$operations_3d$to_mygeo(g){
-var verts = (function (){var obj27064 = g;
-var k27065 = "vertices";
-if((function (){var obj27067 = obj27064;
-return (((!((obj27067 == null)))) && (applied_science.js_interop.impl.in_QMARK__STAR_(k27065,obj27067)));
+var verts = (function (){var obj54574 = g;
+var k54575 = "vertices";
+if((function (){var obj54576 = obj54574;
+return (((!((obj54576 == null)))) && (applied_science.js_interop.impl.in_QMARK__STAR_(k54575,obj54576)));
 })()){
-return (obj27064[k27065]);
+return (obj54574[k54575]);
 } else {
 return undefined;
 }
 })();
-var faces = (function (){var obj27068 = g;
-var k27069 = "faces";
-if((function (){var obj27070 = obj27068;
-return (((!((obj27070 == null)))) && (applied_science.js_interop.impl.in_QMARK__STAR_(k27069,obj27070)));
+var faces = (function (){var obj54577 = g;
+var k54578 = "faces";
+if((function (){var obj54579 = obj54577;
+return (((!((obj54579 == null)))) && (applied_science.js_interop.impl.in_QMARK__STAR_(k54578,obj54579)));
 })()){
-return (obj27068[k27069]);
+return (obj54577[k54578]);
 } else {
 return undefined;
 }
 })();
 var normals = cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (face){
-var vindexes = cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__27063_SHARP_){
-var obj27071 = face;
-var k27072 = applied_science.js_interop.impl.wrap_key(p1__27063_SHARP_);
-if((function (){var obj27073 = obj27071;
-return (((!((obj27073 == null)))) && (applied_science.js_interop.impl.in_QMARK__STAR_(k27072,obj27073)));
+var vindexes = cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__54572_SHARP_){
+var obj54582 = face;
+var k54583 = applied_science.js_interop.impl.wrap_key(p1__54572_SHARP_);
+if((function (){var obj54585 = obj54582;
+return (((!((obj54585 == null)))) && (applied_science.js_interop.impl.in_QMARK__STAR_(k54583,obj54585)));
 })()){
-return (obj27071[k27072]);
+return (obj54582[k54583]);
 } else {
 return undefined;
 }
 }),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"a","a",-2123407586),new cljs.core.Keyword(null,"b","b",1482224470),new cljs.core.Keyword(null,"c","c",-1763192079)], null));
-var face_normals = cljs.core.map.cljs$core$IFn$_invoke$arity$2(faber.operations_3d.v_from_js,(function (){var obj27074 = face;
-var k27075 = "vertexNormals";
-if((function (){var obj27077 = obj27074;
-return (((!((obj27077 == null)))) && (applied_science.js_interop.impl.in_QMARK__STAR_(k27075,obj27077)));
+var face_normals = cljs.core.map.cljs$core$IFn$_invoke$arity$2(faber.operations_3d.v_from_js,(function (){var obj54586 = face;
+var k54587 = "vertexNormals";
+if((function (){var obj54588 = obj54586;
+return (((!((obj54588 == null)))) && (applied_science.js_interop.impl.in_QMARK__STAR_(k54587,obj54588)));
 })()){
-return (obj27074[k27075]);
+return (obj54586[k54587]);
 } else {
 return undefined;
 }
@@ -411,24 +411,24 @@ return cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(m,k,cljs.core.map.cljs$core
 }),cljs.core.PersistentArrayMap.EMPTY,cljs.core.group_by(cljs.core.first,cljs.core.mapcat.cljs$core$IFn$_invoke$arity$variadic(cljs.core.identity,cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword(null,"faces-and-normals","faces-and-normals",654388545).cljs$core$IFn$_invoke$arity$1(mygeo)], 0))));
 });
 faber.operations_3d.vectors_sum = (function faber$operations_3d$vectors_sum(vs){
-return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3((function (p1__27086_SHARP_,p2__27087_SHARP_){
-return cljs.core.mapv.cljs$core$IFn$_invoke$arity$3(cljs.core._PLUS_,p1__27086_SHARP_,p2__27087_SHARP_);
+return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3((function (p1__54593_SHARP_,p2__54595_SHARP_){
+return cljs.core.mapv.cljs$core$IFn$_invoke$arity$3(cljs.core._PLUS_,p1__54593_SHARP_,p2__54595_SHARP_);
 }),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [(0),(0),(0)], null),vs);
 });
 faber.operations_3d.vector_scalar_mult = (function faber$operations_3d$vector_scalar_mult(v,n){
-return cljs.core.mapv.cljs$core$IFn$_invoke$arity$2((function (p1__27088_SHARP_){
-return (p1__27088_SHARP_ * n);
+return cljs.core.mapv.cljs$core$IFn$_invoke$arity$2((function (p1__54597_SHARP_){
+return (p1__54597_SHARP_ * n);
 }),v);
 });
 faber.operations_3d.vector_normalize = (function faber$operations_3d$vector_normalize(v){
-var m = Math.sqrt(cljs.core.reduce.cljs$core$IFn$_invoke$arity$2(cljs.core._PLUS_,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__27092_SHARP_){
-return (p1__27092_SHARP_ * p1__27092_SHARP_);
+var m = Math.sqrt(cljs.core.reduce.cljs$core$IFn$_invoke$arity$2(cljs.core._PLUS_,cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p1__54598_SHARP_){
+return (p1__54598_SHARP_ * p1__54598_SHARP_);
 }),v)));
 if((m === (0))){
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [(0),(0),(0)], null);
 } else {
-return cljs.core.mapv.cljs$core$IFn$_invoke$arity$2((function (p1__27094_SHARP_){
-return (p1__27094_SHARP_ / m);
+return cljs.core.mapv.cljs$core$IFn$_invoke$arity$2((function (p1__54599_SHARP_){
+return (p1__54599_SHARP_ / m);
 }),v);
 }
 });
@@ -438,99 +438,99 @@ return cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(m,k,faber.operations_3d.vec
 }),cljs.core.PersistentArrayMap.EMPTY,faber.operations_3d.collect_vertex_normals(mg));
 var _ = cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["vertex-normals=",vertex_normals], 0));
 var updatevert = (function (v,i){
-return cljs.core.vec(cljs.core.mapv.cljs$core$IFn$_invoke$arity$3((function (p1__27098_SHARP_,p2__27099_SHARP_){
-return (p1__27098_SHARP_ + p2__27099_SHARP_);
+return cljs.core.vec(cljs.core.mapv.cljs$core$IFn$_invoke$arity$3((function (p1__54603_SHARP_,p2__54604_SHARP_){
+return (p1__54603_SHARP_ + p2__54604_SHARP_);
 }),v,faber.operations_3d.vector_scalar_mult((vertex_normals.cljs$core$IFn$_invoke$arity$1 ? vertex_normals.cljs$core$IFn$_invoke$arity$1(i) : vertex_normals.call(null,i)),r)));
 });
-return cljs.core.update.cljs$core$IFn$_invoke$arity$3(mg,new cljs.core.Keyword(null,"vertices","vertices",2008905731),(function (p1__27100_SHARP_){
-return cljs.core.mapv.cljs$core$IFn$_invoke$arity$3(updatevert,p1__27100_SHARP_,cljs.core.range.cljs$core$IFn$_invoke$arity$0());
+return cljs.core.update.cljs$core$IFn$_invoke$arity$3(mg,new cljs.core.Keyword(null,"vertices","vertices",2008905731),(function (p1__54605_SHARP_){
+return cljs.core.mapv.cljs$core$IFn$_invoke$arity$3(updatevert,p1__54605_SHARP_,cljs.core.range.cljs$core$IFn$_invoke$arity$0());
 }));
 });
 faber.operations_3d.inflate = (function faber$operations_3d$inflate(r,mesh){
 cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["offset r=",r], 0));
 
-var g_27281 = (function (){var obj27110 = mesh;
-var k27111 = "geometry";
-if((function (){var obj27114 = obj27110;
-return (((!((obj27114 == null)))) && (applied_science.js_interop.impl.in_QMARK__STAR_(k27111,obj27114)));
+var g_54686 = (function (){var obj54615 = mesh;
+var k54616 = "geometry";
+if((function (){var obj54617 = obj54615;
+return (((!((obj54617 == null)))) && (applied_science.js_interop.impl.in_QMARK__STAR_(k54616,obj54617)));
 })()){
-return (obj27110[k27111]);
+return (obj54615[k54616]);
 } else {
 return undefined;
 }
 })();
-var mg_27282 = faber.operations_3d.to_mygeo((function (){var obj27115 = mesh;
-var k27116 = "geometry";
-if((function (){var obj27118 = obj27115;
-return (((!((obj27118 == null)))) && (applied_science.js_interop.impl.in_QMARK__STAR_(k27116,obj27118)));
+var mg_54687 = faber.operations_3d.to_mygeo((function (){var obj54618 = mesh;
+var k54619 = "geometry";
+if((function (){var obj54620 = obj54618;
+return (((!((obj54620 == null)))) && (applied_science.js_interop.impl.in_QMARK__STAR_(k54619,obj54620)));
 })()){
-return (obj27115[k27116]);
+return (obj54618[k54619]);
 } else {
 return undefined;
 }
 })());
-var newverts_27283 = cljs.core.clj__GT_js(cljs.core.vec(cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p__27121){
-var vec__27122 = p__27121;
-var x = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__27122,(0),null);
-var y = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__27122,(1),null);
-var z = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__27122,(2),null);
+var newverts_54688 = cljs.core.clj__GT_js(cljs.core.vec(cljs.core.map.cljs$core$IFn$_invoke$arity$2((function (p__54624){
+var vec__54625 = p__54624;
+var x = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54625,(0),null);
+var y = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54625,(1),null);
+var z = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54625,(2),null);
 return (new module$node_modules$three$build$three.Vector3(x,y,z));
-}),new cljs.core.Keyword(null,"vertices","vertices",2008905731).cljs$core$IFn$_invoke$arity$1(faber.operations_3d.offset_mygeo(mg_27282,r)))));
-(g_27281.vertices = newverts_27283);
+}),new cljs.core.Keyword(null,"vertices","vertices",2008905731).cljs$core$IFn$_invoke$arity$1(faber.operations_3d.offset_mygeo(mg_54687,r)))));
+(g_54686.vertices = newverts_54688);
 
-(g_27281.verticesNeedUpdate = true);
+(g_54686.verticesNeedUpdate = true);
 
 return mesh;
 });
 faber.operations_3d.mesh_size_from_bounding_box = (function faber$operations_3d$mesh_size_from_bounding_box(mesh){
-var g = (function (){var obj27128 = mesh;
-var k27129 = "geometry";
-if((function (){var obj27130 = obj27128;
-return (((!((obj27130 == null)))) && (applied_science.js_interop.impl.in_QMARK__STAR_(k27129,obj27130)));
+var g = (function (){var obj54628 = mesh;
+var k54629 = "geometry";
+if((function (){var obj54630 = obj54628;
+return (((!((obj54630 == null)))) && (applied_science.js_interop.impl.in_QMARK__STAR_(k54629,obj54630)));
 })()){
-return (obj27128[k27129]);
+return (obj54628[k54629]);
 } else {
 return undefined;
 }
 })();
-var obj__26806__auto___27286 = g;
-var f__26807__auto___27287 = (obj__26806__auto___27286["computeBoundingBox"]);
-f__26807__auto___27287.call(obj__26806__auto___27286);
+var obj__27350__auto___54697 = g;
+var f__27351__auto___54698 = (obj__27350__auto___54697["computeBoundingBox"]);
+f__27351__auto___54698.call(obj__27350__auto___54697);
 
-var map__27131 = applied_science.js_interop.lookup((function (){var obj__26806__auto__ = (function (){var obj27132 = g;
-var k27133 = "boundingBox";
-if((function (){var obj27134 = obj27132;
-return (((!((obj27134 == null)))) && (applied_science.js_interop.impl.in_QMARK__STAR_(k27133,obj27134)));
+var map__54631 = applied_science.js_interop.lookup((function (){var obj__27350__auto__ = (function (){var obj54632 = g;
+var k54633 = "boundingBox";
+if((function (){var obj54634 = obj54632;
+return (((!((obj54634 == null)))) && (applied_science.js_interop.impl.in_QMARK__STAR_(k54633,obj54634)));
 })()){
-return (obj27132[k27133]);
+return (obj54632[k54633]);
 } else {
 return undefined;
 }
 })();
-var f__26807__auto__ = (obj__26806__auto__["getSize"]);
-return f__26807__auto__.call(obj__26806__auto__,(new module$node_modules$three$build$three.Vector3()));
+var f__27351__auto__ = (obj__27350__auto__["getSize"]);
+return f__27351__auto__.call(obj__27350__auto__,(new module$node_modules$three$build$three.Vector3()));
 })());
-var map__27131__$1 = (((((!((map__27131 == null))))?(((((map__27131.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__27131.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__27131):map__27131);
-var x = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__27131__$1,new cljs.core.Keyword(null,"x","x",2099068185));
-var y = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__27131__$1,new cljs.core.Keyword(null,"y","y",-1757859776));
-var z = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__27131__$1,new cljs.core.Keyword(null,"z","z",-789527183));
+var map__54631__$1 = (((((!((map__54631 == null))))?(((((map__54631.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__54631.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__54631):map__54631);
+var x = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54631__$1,new cljs.core.Keyword(null,"x","x",2099068185));
+var y = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54631__$1,new cljs.core.Keyword(null,"y","y",-1757859776));
+var z = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54631__$1,new cljs.core.Keyword(null,"z","z",-789527183));
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [x,y,z], null);
 });
-faber.operations_3d.offset = (function faber$operations_3d$offset(p__27143,mesh){
-var map__27144 = p__27143;
-var map__27144__$1 = (((((!((map__27144 == null))))?(((((map__27144.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__27144.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__27144):map__27144);
-var r = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__27144__$1,new cljs.core.Keyword(null,"r","r",-471384190));
+faber.operations_3d.offset = (function faber$operations_3d$offset(p__54637,mesh){
+var map__54638 = p__54637;
+var map__54638__$1 = (((((!((map__54638 == null))))?(((((map__54638.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__54638.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__54638):map__54638);
+var r = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54638__$1,new cljs.core.Keyword(null,"r","r",-471384190));
 var meshsize = faber.operations_3d.mesh_size_from_bounding_box(mesh);
-var factor = cljs.core.mapv.cljs$core$IFn$_invoke$arity$2((function (p1__27141_SHARP_){
-return ((p1__27141_SHARP_ + r) / p1__27141_SHARP_);
+var factor = cljs.core.mapv.cljs$core$IFn$_invoke$arity$2((function (p1__54636_SHARP_){
+return ((p1__54636_SHARP_ + r) / p1__54636_SHARP_);
 }),meshsize);
 return cljs.core.apply.cljs$core$IFn$_invoke$arity$3(faber.operations_3d.scale,mesh,factor);
 });
-faber.operations_3d.rotate_to_XY = (function faber$operations_3d$rotate_to_XY(p__27153){
-var vec__27154 = p__27153;
-var x = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__27154,(0),null);
-var y = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__27154,(1),null);
-var z = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__27154,(2),null);
+faber.operations_3d.rotate_to_XY = (function faber$operations_3d$rotate_to_XY(p__54640){
+var vec__54641 = p__54640;
+var x = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54641,(0),null);
+var y = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54641,(1),null);
+var z = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54641,(2),null);
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [x,y], null);
 });
 faber.operations_3d.get_trianles = (function faber$operations_3d$get_trianles(points,faces){
@@ -557,36 +557,36 @@ return triangles;
 faber.operations_3d.polyhedron = (function faber$operations_3d$polyhedron(points,faces){
 cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["polyhedron. points=",points," faces=",faces], 0));
 
-var vertices = cljs.core.clj__GT_js(cljs.core.mapv.cljs$core$IFn$_invoke$arity$2((function (p__27170){
-var vec__27171 = p__27170;
-var x = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__27171,(0),null);
-var y = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__27171,(1),null);
-var z = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__27171,(2),null);
+var vertices = cljs.core.clj__GT_js(cljs.core.mapv.cljs$core$IFn$_invoke$arity$2((function (p__54645){
+var vec__54646 = p__54645;
+var x = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54646,(0),null);
+var y = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54646,(1),null);
+var z = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54646,(2),null);
 return (new module$node_modules$three$build$three.Vector3(x,y,z));
 }),points));
-var triangles = (cljs.core.truth_(cljs.core.some((function (p1__27165_SHARP_){
-return (cljs.core.count(p1__27165_SHARP_) > (3));
-}),faces))?faber.operations_3d.get_trianles(points,faces):cljs.core.clj__GT_js(cljs.core.mapv.cljs$core$IFn$_invoke$arity$2((function (p__27174){
-var vec__27175 = p__27174;
-var a = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__27175,(0),null);
-var b = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__27175,(1),null);
-var c = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__27175,(2),null);
+var triangles = (cljs.core.truth_(cljs.core.some((function (p1__54644_SHARP_){
+return (cljs.core.count(p1__54644_SHARP_) > (3));
+}),faces))?faber.operations_3d.get_trianles(points,faces):cljs.core.clj__GT_js(cljs.core.mapv.cljs$core$IFn$_invoke$arity$2((function (p__54649){
+var vec__54650 = p__54649;
+var a = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54650,(0),null);
+var b = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54650,(1),null);
+var c = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54650,(2),null);
 return (new module$node_modules$three$build$three.Face3(a,b,c));
 }),faces)));
 var g = (new module$node_modules$three$build$three.Geometry());
-var obj27178_27298 = g;
-var obj27179_27299 = (((!((obj27178_27298 == null))))?obj27178_27298:({}));
-(obj27179_27299["vertices"] = vertices);
+var obj54653_54718 = g;
+var obj54654_54719 = (((!((obj54653_54718 == null))))?obj54653_54718:({}));
+(obj54654_54719["vertices"] = vertices);
 
 
-var obj27186_27300 = g;
-var obj27187_27301 = (((!((obj27186_27300 == null))))?obj27186_27300:({}));
-(obj27187_27301["faces"] = triangles);
+var obj54657_54723 = g;
+var obj54658_54724 = (((!((obj54657_54723 == null))))?obj54657_54723:({}));
+(obj54658_54724["faces"] = triangles);
 
 
-var obj__26806__auto___27304 = g;
-var f__26807__auto___27305 = (obj__26806__auto___27304["computeFaceNormals"]);
-f__26807__auto___27305.call(obj__26806__auto___27304);
+var obj__27350__auto___54725 = g;
+var f__27351__auto___54726 = (obj__27350__auto___54725["computeFaceNormals"]);
+f__27351__auto___54726.call(obj__27350__auto___54725);
 
 return (new module$node_modules$three$build$three.Mesh(g,faber.operations_3d.default_material));
 });

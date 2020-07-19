@@ -8,24 +8,24 @@ re_db.d._STAR_db_STAR_ = re_db.core.create.cljs$core$IFn$_invoke$arity$1(cljs.co
  */
 re_db.d.partial_deref = (function re_db$d$partial_deref(f,a){
 return (function() { 
-var G__49309__delegate = function (args){
+var G__26743__delegate = function (args){
 return cljs.core.apply.cljs$core$IFn$_invoke$arity$3(f,cljs.core.deref(a),args);
 };
-var G__49309 = function (var_args){
+var G__26743 = function (var_args){
 var args = null;
 if (arguments.length > 0) {
-var G__49310__i = 0, G__49310__a = new Array(arguments.length -  0);
-while (G__49310__i < G__49310__a.length) {G__49310__a[G__49310__i] = arguments[G__49310__i + 0]; ++G__49310__i;}
-  args = new cljs.core.IndexedSeq(G__49310__a,0,null);
+var G__26745__i = 0, G__26745__a = new Array(arguments.length -  0);
+while (G__26745__i < G__26745__a.length) {G__26745__a[G__26745__i] = arguments[G__26745__i + 0]; ++G__26745__i;}
+  args = new cljs.core.IndexedSeq(G__26745__a,0,null);
 } 
-return G__49309__delegate.call(this,args);};
-G__49309.cljs$lang$maxFixedArity = 0;
-G__49309.cljs$lang$applyTo = (function (arglist__49311){
-var args = cljs.core.seq(arglist__49311);
-return G__49309__delegate(args);
+return G__26743__delegate.call(this,args);};
+G__26743.cljs$lang$maxFixedArity = 0;
+G__26743.cljs$lang$applyTo = (function (arglist__26746){
+var args = cljs.core.seq(arglist__26746);
+return G__26743__delegate(args);
 });
-G__49309.cljs$core$IFn$_invoke$arity$variadic = G__49309__delegate;
-return G__49309;
+G__26743.cljs$core$IFn$_invoke$arity$variadic = G__26743__delegate;
+return G__26743;
 })()
 ;
 });

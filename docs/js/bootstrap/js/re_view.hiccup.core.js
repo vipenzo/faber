@@ -15,7 +15,7 @@ return cljs.core._write(writer,["\"",cljs.core.str.cljs$core$IFn$_invoke$arity$1
  */
 re_view.hiccup.core.IElement = function(){};
 
-var re_view$hiccup$core$IElement$to_element$dyn_45637 = (function (this$){
+var re_view$hiccup$core$IElement$to_element$dyn_26419 = (function (this$){
 var x__4428__auto__ = (((this$ == null))?null:this$);
 var m__4429__auto__ = (re_view.hiccup.core.to_element[goog.typeOf(x__4428__auto__)]);
 if((!((m__4429__auto__ == null)))){
@@ -36,7 +36,7 @@ re_view.hiccup.core.to_element = (function re_view$hiccup$core$to_element(this$)
 if((((!((this$ == null)))) && ((!((this$.re_view$hiccup$core$IElement$to_element$arity$1 == null)))))){
 return this$.re_view$hiccup$core$IElement$to_element$arity$1(this$);
 } else {
-return re_view$hiccup$core$IElement$to_element$dyn_45637(this$);
+return re_view$hiccup$core$IElement$to_element$dyn_26419(this$);
 }
 });
 
@@ -46,7 +46,7 @@ return re_view$hiccup$core$IElement$to_element$dyn_45637(this$);
  */
 re_view.hiccup.core.IEmitHiccup = function(){};
 
-var re_view$hiccup$core$IEmitHiccup$to_hiccup$dyn_45639 = (function (this$){
+var re_view$hiccup$core$IEmitHiccup$to_hiccup$dyn_26420 = (function (this$){
 var x__4428__auto__ = (((this$ == null))?null:this$);
 var m__4429__auto__ = (re_view.hiccup.core.to_hiccup[goog.typeOf(x__4428__auto__)]);
 if((!((m__4429__auto__ == null)))){
@@ -67,31 +67,31 @@ re_view.hiccup.core.to_hiccup = (function re_view$hiccup$core$to_hiccup(this$){
 if((((!((this$ == null)))) && ((!((this$.re_view$hiccup$core$IEmitHiccup$to_hiccup$arity$1 == null)))))){
 return this$.re_view$hiccup$core$IEmitHiccup$to_hiccup$arity$1(this$);
 } else {
-return re_view$hiccup$core$IEmitHiccup$to_hiccup$dyn_45639(this$);
+return re_view$hiccup$core$IEmitHiccup$to_hiccup$dyn_26420(this$);
 }
 });
 
 re_view.hiccup.core._to_element = (function re_view$hiccup$core$_to_element(form){
 if(cljs.core.vector_QMARK_(form)){
-try{var vec__45612 = re_view.hiccup.hiccup.parse_key_memoized((form.cljs$core$IFn$_invoke$arity$1 ? form.cljs$core$IFn$_invoke$arity$1((0)) : form.call(null,(0))));
-var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__45612,(0),null);
-var tag = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__45612,(1),null);
-var id = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__45612,(2),null);
-var classes = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__45612,(3),null);
-var vec__45615 = re_view.hiccup.hiccup.parse_args(form);
-var props = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__45615,(0),null);
-var children = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__45615,(1),null);
+try{var vec__26400 = re_view.hiccup.hiccup.parse_key_memoized((form.cljs$core$IFn$_invoke$arity$1 ? form.cljs$core$IFn$_invoke$arity$1((0)) : form.call(null,(0))));
+var _ = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__26400,(0),null);
+var tag = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__26400,(1),null);
+var id = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__26400,(2),null);
+var classes = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__26400,(3),null);
+var vec__26403 = re_view.hiccup.hiccup.parse_args(form);
+var props = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__26403,(0),null);
+var children = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__26403,(1),null);
 var args = re_view.hiccup.hiccup.reduce_flatten_seqs(re_view.hiccup.core._to_element,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [tag,re_view.hiccup.hiccup.props__GT_js(tag,id,classes,props)], null),children);
 return cljs.core.apply.cljs$core$IFn$_invoke$arity$2(re_view.hiccup.hiccup._STAR_create_element_STAR_,args);
-}catch (e45611){if((e45611 instanceof Error)){
-var e = e45611;
+}catch (e26399){if((e26399 instanceof Error)){
+var e = e26399;
 cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["Error in render-hiccup-node:"], 0));
 
 cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([form], 0));
 
 return console.error(e);
 } else {
-throw e45611;
+throw e26399;
 
 }
 }} else {
@@ -99,15 +99,15 @@ if((((!((form == null))))?((((false) || ((cljs.core.PROTOCOL_SENTINEL === form.r
 return re_view.hiccup.core.to_element(form);
 } else {
 if((((!((form == null))))?((((false) || ((cljs.core.PROTOCOL_SENTINEL === form.re_view$hiccup$core$IEmitHiccup$))))?true:(((!form.cljs$lang$protocol_mask$partition$))?cljs.core.native_satisfies_QMARK_(re_view.hiccup.core.IEmitHiccup,form):false)):cljs.core.native_satisfies_QMARK_(re_view.hiccup.core.IEmitHiccup,form))){
-var G__45622 = re_view.hiccup.core.to_hiccup(form);
-return (re_view.hiccup.core._to_element.cljs$core$IFn$_invoke$arity$1 ? re_view.hiccup.core._to_element.cljs$core$IFn$_invoke$arity$1(G__45622) : re_view.hiccup.core._to_element.call(null,G__45622));
+var G__26408 = re_view.hiccup.core.to_hiccup(form);
+return (re_view.hiccup.core._to_element.cljs$core$IFn$_invoke$arity$1 ? re_view.hiccup.core._to_element.cljs$core$IFn$_invoke$arity$1(G__26408) : re_view.hiccup.core._to_element.call(null,G__26408));
 } else {
 if(cljs.core.list_QMARK_(form)){
 return cljs.core.reduce.cljs$core$IFn$_invoke$arity$3((function (out,el){
-var G__45623 = out;
-G__45623.push((re_view.hiccup.core._to_element.cljs$core$IFn$_invoke$arity$1 ? re_view.hiccup.core._to_element.cljs$core$IFn$_invoke$arity$1(el) : re_view.hiccup.core._to_element.call(null,el)));
+var G__26409 = out;
+G__26409.push((re_view.hiccup.core._to_element.cljs$core$IFn$_invoke$arity$1 ? re_view.hiccup.core._to_element.cljs$core$IFn$_invoke$arity$1(el) : re_view.hiccup.core._to_element.call(null,el)));
 
-return G__45623;
+return G__26409;
 }),[],form);
 } else {
 return form;
@@ -127,8 +127,8 @@ return form;
  * :create-element (fn) overrides React.createElement.
  */
 re_view.hiccup.core.element = (function re_view$hiccup$core$element(var_args){
-var G__45626 = arguments.length;
-switch (G__45626) {
+var G__26411 = arguments.length;
+switch (G__26411) {
 case 1:
 return re_view.hiccup.core.element.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
@@ -147,29 +147,29 @@ throw (new Error(["Invalid arity: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(
 return re_view.hiccup.core._to_element(form);
 }));
 
-(re_view.hiccup.core.element.cljs$core$IFn$_invoke$arity$2 = (function (form,p__45630){
-var map__45631 = p__45630;
-var map__45631__$1 = (((((!((map__45631 == null))))?(((((map__45631.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__45631.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__45631):map__45631);
-var wrap_props = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__45631__$1,new cljs.core.Keyword(null,"wrap-props","wrap-props",-983244308));
-var create_element = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__45631__$1,new cljs.core.Keyword(null,"create-element","create-element",193243064));
-var _STAR_wrap_props_STAR__orig_val__45633 = re_view.hiccup.hiccup._STAR_wrap_props_STAR_;
-var _STAR_create_element_STAR__orig_val__45634 = re_view.hiccup.hiccup._STAR_create_element_STAR_;
-var _STAR_wrap_props_STAR__temp_val__45635 = wrap_props;
-var _STAR_create_element_STAR__temp_val__45636 = (function (){var or__4126__auto__ = re_view.hiccup.hiccup._STAR_create_element_STAR_;
+(re_view.hiccup.core.element.cljs$core$IFn$_invoke$arity$2 = (function (form,p__26412){
+var map__26413 = p__26412;
+var map__26413__$1 = (((((!((map__26413 == null))))?(((((map__26413.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__26413.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__26413):map__26413);
+var wrap_props = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__26413__$1,new cljs.core.Keyword(null,"wrap-props","wrap-props",-983244308));
+var create_element = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__26413__$1,new cljs.core.Keyword(null,"create-element","create-element",193243064));
+var _STAR_wrap_props_STAR__orig_val__26415 = re_view.hiccup.hiccup._STAR_wrap_props_STAR_;
+var _STAR_create_element_STAR__orig_val__26416 = re_view.hiccup.hiccup._STAR_create_element_STAR_;
+var _STAR_wrap_props_STAR__temp_val__26417 = wrap_props;
+var _STAR_create_element_STAR__temp_val__26418 = (function (){var or__4126__auto__ = re_view.hiccup.hiccup._STAR_create_element_STAR_;
 if(cljs.core.truth_(or__4126__auto__)){
 return or__4126__auto__;
 } else {
 return create_element;
 }
 })();
-(re_view.hiccup.hiccup._STAR_wrap_props_STAR_ = _STAR_wrap_props_STAR__temp_val__45635);
+(re_view.hiccup.hiccup._STAR_wrap_props_STAR_ = _STAR_wrap_props_STAR__temp_val__26417);
 
-(re_view.hiccup.hiccup._STAR_create_element_STAR_ = _STAR_create_element_STAR__temp_val__45636);
+(re_view.hiccup.hiccup._STAR_create_element_STAR_ = _STAR_create_element_STAR__temp_val__26418);
 
 try{return re_view.hiccup.core._to_element(form);
-}finally {(re_view.hiccup.hiccup._STAR_create_element_STAR_ = _STAR_create_element_STAR__orig_val__45634);
+}finally {(re_view.hiccup.hiccup._STAR_create_element_STAR_ = _STAR_create_element_STAR__orig_val__26416);
 
-(re_view.hiccup.hiccup._STAR_wrap_props_STAR_ = _STAR_wrap_props_STAR__orig_val__45633);
+(re_view.hiccup.hiccup._STAR_wrap_props_STAR_ = _STAR_wrap_props_STAR__orig_val__26415);
 }}));
 
 (re_view.hiccup.core.element.cljs$lang$maxFixedArity = 2);

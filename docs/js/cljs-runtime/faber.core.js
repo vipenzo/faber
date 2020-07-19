@@ -18,49 +18,49 @@ return cljs.core.str.cljs$core$IFn$_invoke$arity$1(value);
 faber.core.visible_pane_QMARK_ = (function faber$core$visible_pane_QMARK_(visible){
 return new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"display","display",242065432),(cljs.core.truth_(visible)?"block":"none")], null)], null);
 });
-var the_class__26992__auto___50836 = re_view.core.class_STAR_(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"react-keys","react-keys",-1618321002),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"docstring","docstring",879233117),null,new cljs.core.Keyword(null,"display-name","display-name",694513143),"core/error-pane"], null),new cljs.core.Keyword(null,"lifecycle-keys","lifecycle-keys",-1618460896),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("view","render","view/render",-1412767573),(function faber$core$error_pane(p__50807){
-var map__50808 = p__50807;
-var map__50808__$1 = (((((!((map__50808 == null))))?(((((map__50808.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__50808.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__50808):map__50808);
-var map__50809 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__50808__$1,new cljs.core.Keyword("view","props","view/props",449562012));
-var map__50809__$1 = (((((!((map__50809 == null))))?(((((map__50809.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__50809.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__50809):map__50809);
-var visible = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__50809__$1,new cljs.core.Keyword(null,"visible","visible",-1024216805));
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__50809__$1,new cljs.core.Keyword(null,"value","value",305978217));
+var the_class__27590__auto___54987 = re_view.core.class_STAR_(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"react-keys","react-keys",-1618321002),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"docstring","docstring",879233117),null,new cljs.core.Keyword(null,"display-name","display-name",694513143),"core/error-pane"], null),new cljs.core.Keyword(null,"lifecycle-keys","lifecycle-keys",-1618460896),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("view","render","view/render",-1412767573),(function faber$core$error_pane(p__54847){
+var map__54852 = p__54847;
+var map__54852__$1 = (((((!((map__54852 == null))))?(((((map__54852.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__54852.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__54852):map__54852);
+var map__54853 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54852__$1,new cljs.core.Keyword("view","props","view/props",449562012));
+var map__54853__$1 = (((((!((map__54853 == null))))?(((((map__54853.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__54853.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__54853):map__54853);
+var visible = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54853__$1,new cljs.core.Keyword(null,"visible","visible",-1024216805));
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54853__$1,new cljs.core.Keyword(null,"value","value",305978217));
 cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["render error-pane visible=",visible," value=",value], 0));
 
 return re_view.hiccup.core.element.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),faber.core.visible_pane_QMARK_(visible),(((new cljs.core.Keyword(null,"error","error",-978969032).cljs$core$IFn$_invoke$arity$1(value) instanceof Error))?re_view.hiccup.core.element.cljs$core$IFn$_invoke$arity$1(new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,".pa3.bg-washed-red",".pa3.bg-washed-red",270898254),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,".b",".b",-335131582),cljs.core.ex_message(new cljs.core.Keyword(null,"error","error",-978969032).cljs$core$IFn$_invoke$arity$1(value))], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),cljs.core.str.cljs$core$IFn$_invoke$arity$1(cljs.core.ex_data(new cljs.core.Keyword(null,"error","error",-978969032).cljs$core$IFn$_invoke$arity$1(value)))], null),cljs.core.pr_str.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([cljs.core.ex_cause(new cljs.core.Keyword(null,"error","error",-978969032).cljs$core$IFn$_invoke$arity$1(value))], 0))], null)):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"p","p",151049309),["Error: ",cljs.core.str.cljs$core$IFn$_invoke$arity$1(value)].join('')], null))], null),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"wrap-props","wrap-props",-983244308),re_view.core.wrap_props], null));
 })], null),new cljs.core.Keyword(null,"instance-keys","instance-keys",1299417647),null], null));
-faber.core.error_paneClass = the_class__26992__auto___50836;
+faber.core.error_paneClass = the_class__27590__auto___54987;
 
-faber.core.error_pane = re_view.core.factory(the_class__26992__auto___50836);
-var the_class__26992__auto___50837 = re_view.core.class_STAR_(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"react-keys","react-keys",-1618321002),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"docstring","docstring",879233117),null,new cljs.core.Keyword(null,"display-name","display-name",694513143),"core/result-pane"], null),new cljs.core.Keyword(null,"lifecycle-keys","lifecycle-keys",-1618460896),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("view","render","view/render",-1412767573),(function faber$core$result_pane(p__50812){
-var map__50813 = p__50812;
-var map__50813__$1 = (((((!((map__50813 == null))))?(((((map__50813.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__50813.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__50813):map__50813);
-var map__50814 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__50813__$1,new cljs.core.Keyword("view","props","view/props",449562012));
-var map__50814__$1 = (((((!((map__50814 == null))))?(((((map__50814.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__50814.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__50814):map__50814);
-var visible = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__50814__$1,new cljs.core.Keyword(null,"visible","visible",-1024216805));
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__50814__$1,new cljs.core.Keyword(null,"value","value",305978217));
+faber.core.error_pane = re_view.core.factory(the_class__27590__auto___54987);
+var the_class__27590__auto___54988 = re_view.core.class_STAR_(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"react-keys","react-keys",-1618321002),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"docstring","docstring",879233117),null,new cljs.core.Keyword(null,"display-name","display-name",694513143),"core/result-pane"], null),new cljs.core.Keyword(null,"lifecycle-keys","lifecycle-keys",-1618460896),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("view","render","view/render",-1412767573),(function faber$core$result_pane(p__54879){
+var map__54880 = p__54879;
+var map__54880__$1 = (((((!((map__54880 == null))))?(((((map__54880.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__54880.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__54880):map__54880);
+var map__54881 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54880__$1,new cljs.core.Keyword("view","props","view/props",449562012));
+var map__54881__$1 = (((((!((map__54881 == null))))?(((((map__54881.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__54881.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__54881):map__54881);
+var visible = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54881__$1,new cljs.core.Keyword(null,"visible","visible",-1024216805));
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54881__$1,new cljs.core.Keyword(null,"value","value",305978217));
 cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["render result-pane visible=",visible," value=",value], 0));
 
 return re_view.hiccup.core.element.cljs$core$IFn$_invoke$arity$2(re_view.hiccup.core.element.cljs$core$IFn$_invoke$arity$1(new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,".pa3.bg-washed-green",".pa3.bg-washed-green",431134598),faber.core.visible_pane_QMARK_(visible),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"b","b",1482224470),"Result:"], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,".pa3",".pa3",1465128375),faber.core.format_value(value)], null)], null)),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"wrap-props","wrap-props",-983244308),re_view.core.wrap_props], null));
 })], null),new cljs.core.Keyword(null,"instance-keys","instance-keys",1299417647),null], null));
-faber.core.result_paneClass = the_class__26992__auto___50837;
+faber.core.result_paneClass = the_class__27590__auto___54988;
 
-faber.core.result_pane = re_view.core.factory(the_class__26992__auto___50837);
-var the_class__26992__auto___50838 = re_view.core.class_STAR_(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"react-keys","react-keys",-1618321002),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"docstring","docstring",879233117),null,new cljs.core.Keyword(null,"display-name","display-name",694513143),"core/canvas3d-pane"], null),new cljs.core.Keyword(null,"lifecycle-keys","lifecycle-keys",-1618460896),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("view","render","view/render",-1412767573),(function faber$core$canvas3d_pane(p__50817){
-var map__50818 = p__50817;
-var map__50818__$1 = (((((!((map__50818 == null))))?(((((map__50818.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__50818.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__50818):map__50818);
-var map__50819 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__50818__$1,new cljs.core.Keyword("view","props","view/props",449562012));
-var map__50819__$1 = (((((!((map__50819 == null))))?(((((map__50819.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__50819.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__50819):map__50819);
-var visible = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__50819__$1,new cljs.core.Keyword(null,"visible","visible",-1024216805));
-var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__50819__$1,new cljs.core.Keyword(null,"value","value",305978217));
+faber.core.result_pane = re_view.core.factory(the_class__27590__auto___54988);
+var the_class__27590__auto___54989 = re_view.core.class_STAR_(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"react-keys","react-keys",-1618321002),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"docstring","docstring",879233117),null,new cljs.core.Keyword(null,"display-name","display-name",694513143),"core/canvas3d-pane"], null),new cljs.core.Keyword(null,"lifecycle-keys","lifecycle-keys",-1618460896),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("view","render","view/render",-1412767573),(function faber$core$canvas3d_pane(p__54896){
+var map__54897 = p__54896;
+var map__54897__$1 = (((((!((map__54897 == null))))?(((((map__54897.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__54897.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__54897):map__54897);
+var map__54898 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54897__$1,new cljs.core.Keyword("view","props","view/props",449562012));
+var map__54898__$1 = (((((!((map__54898 == null))))?(((((map__54898.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__54898.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__54898):map__54898);
+var visible = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54898__$1,new cljs.core.Keyword(null,"visible","visible",-1024216805));
+var value = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54898__$1,new cljs.core.Keyword(null,"value","value",305978217));
 cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["render 3d-pane visible=",visible," value=",value], 0));
 
 return re_view.hiccup.core.element.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),faber.core.visible_pane_QMARK_(visible),cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["(:3Dmodel value)=",new cljs.core.Keyword(null,"3dmodel","3dmodel",135298134).cljs$core$IFn$_invoke$arity$1(value)], 0)),faber.canvas3d.canvas3d(value)], null),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"wrap-props","wrap-props",-983244308),re_view.core.wrap_props], null));
 })], null),new cljs.core.Keyword(null,"instance-keys","instance-keys",1299417647),null], null));
-faber.core.canvas3d_paneClass = the_class__26992__auto___50838;
+faber.core.canvas3d_paneClass = the_class__27590__auto___54989;
 
-faber.core.canvas3d_pane = re_view.core.factory(the_class__26992__auto___50838);
-var the_class__26992__auto___50839 = re_view.core.class_STAR_(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"react-keys","react-keys",-1618321002),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"key","key",-1516042587),(function (_,source){
+faber.core.canvas3d_pane = re_view.core.factory(the_class__27590__auto___54989);
+var the_class__27590__auto___54990 = re_view.core.class_STAR_(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"react-keys","react-keys",-1618321002),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"key","key",-1516042587),(function (_,source){
 return source;
 }),new cljs.core.Keyword(null,"docstring","docstring",879233117),null,new cljs.core.Keyword(null,"display-name","display-name",694513143),"core/model-editor"], null),new cljs.core.Keyword(null,"lifecycle-keys","lifecycle-keys",-1618460896),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("view","initial-state","view/initial-state",-2068231227),(function (_,source){
 return new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"model-source","model-source",-1983623726),source], null);
@@ -72,28 +72,28 @@ module$node_modules$parinfer_codemirror$parinfer_codemirror.init(codearea);
 re_db.d.transact_BANG_(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("db","add","db/add",235286841),new cljs.core.Keyword(null,"editor","editor",-989377770),new cljs.core.Keyword(null,"codearea","codearea",1347344499),codearea], null)], null));
 
 return faber.core.eval_str(source,cljs.core.partial.cljs$core$IFn$_invoke$arity$4(cljs.core.swap_BANG_,new cljs.core.Keyword("view","state","view/state",-1991815820).cljs$core$IFn$_invoke$arity$1(this$),cljs.core.assoc,new cljs.core.Keyword(null,"result","result",1415092211)));
-}),new cljs.core.Keyword("view","render","view/render",-1412767573),(function faber$core$model_editor(p__50822){
-var map__50823 = p__50822;
-var map__50823__$1 = (((((!((map__50823 == null))))?(((((map__50823.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__50823.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__50823):map__50823);
-var state = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__50823__$1,new cljs.core.Keyword("view","state","view/state",-1991815820));
-return re_view.hiccup.core.element.cljs$core$IFn$_invoke$arity$2((function (){var map__50825 = cljs.core.deref(state);
-var map__50825__$1 = (((((!((map__50825 == null))))?(((((map__50825.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__50825.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__50825):map__50825);
-var model_source = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__50825__$1,new cljs.core.Keyword(null,"model-source","model-source",-1983623726));
-var result = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__50825__$1,new cljs.core.Keyword(null,"result","result",1415092211));
+}),new cljs.core.Keyword("view","render","view/render",-1412767573),(function faber$core$model_editor(p__54923){
+var map__54924 = p__54923;
+var map__54924__$1 = (((((!((map__54924 == null))))?(((((map__54924.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__54924.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__54924):map__54924);
+var state = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54924__$1,new cljs.core.Keyword("view","state","view/state",-1991815820));
+return re_view.hiccup.core.element.cljs$core$IFn$_invoke$arity$2((function (){var map__54926 = cljs.core.deref(state);
+var map__54926__$1 = (((((!((map__54926 == null))))?(((((map__54926.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__54926.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__54926):map__54926);
+var model_source = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54926__$1,new cljs.core.Keyword(null,"model-source","model-source",-1983623726));
+var result = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54926__$1,new cljs.core.Keyword(null,"result","result",1415092211));
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"textarea#codearea.f6.bg-near-white.monospace","textarea#codearea.f6.bg-near-white.monospace",-1586178204),new cljs.core.Keyword(null,"model-source","model-source",-1983623726).cljs$core$IFn$_invoke$arity$1(cljs.core.deref(state))], null);
 })(),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"wrap-props","wrap-props",-983244308),re_view.core.wrap_props], null));
 })], null),new cljs.core.Keyword(null,"instance-keys","instance-keys",1299417647),null], null));
-faber.core.model_editorClass = the_class__26992__auto___50839;
+faber.core.model_editorClass = the_class__27590__auto___54990;
 
-faber.core.model_editor = re_view.core.factory(the_class__26992__auto___50839);
-var the_class__26992__auto___50840 = re_view.core.class_STAR_(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"lifecycle-keys","lifecycle-keys",-1618460896),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("view","initial-state","view/initial-state",-2068231227),(function (_){
+faber.core.model_editor = re_view.core.factory(the_class__27590__auto___54990);
+var the_class__27590__auto___54996 = re_view.core.class_STAR_(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"lifecycle-keys","lifecycle-keys",-1618460896),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("view","initial-state","view/initial-state",-2068231227),(function (_){
 return new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"current","current",-1088038603),new cljs.core.Keyword(null,"3d","3d",-1024035737),new cljs.core.Keyword(null,"value","value",305978217),"press Run"], null);
 }),new cljs.core.Keyword("view","did-mount","view/did-mount",914520155),(function (this$){
 return re_db.d.transact_BANG_(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("db","add","db/add",235286841),new cljs.core.Keyword(null,"faber","faber",-1316193656),new cljs.core.Keyword(null,"right-pane","right-pane",1762684259),this$], null)], null));
-}),new cljs.core.Keyword("view","render","view/render",-1412767573),(function faber$core$right_pane(p__50827){
-var map__50828 = p__50827;
-var map__50828__$1 = (((((!((map__50828 == null))))?(((((map__50828.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__50828.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__50828):map__50828);
-var state = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__50828__$1,new cljs.core.Keyword("view","state","view/state",-1991815820));
+}),new cljs.core.Keyword("view","render","view/render",-1412767573),(function faber$core$right_pane(p__54938){
+var map__54939 = p__54938;
+var map__54939__$1 = (((((!((map__54939 == null))))?(((((map__54939.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__54939.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__54939):map__54939);
+var state = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54939__$1,new cljs.core.Keyword("view","state","view/state",-1991815820));
 return re_view.hiccup.core.element.cljs$core$IFn$_invoke$arity$2((function (){var current = new cljs.core.Keyword(null,"current","current",-1088038603).cljs$core$IFn$_invoke$arity$1(cljs.core.deref(state));
 var value = new cljs.core.Keyword(null,"value","value",305978217).cljs$core$IFn$_invoke$arity$1(cljs.core.deref(state));
 var make_pane_value = (function (kind){
@@ -104,15 +104,15 @@ cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$c
 return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),faber.core.canvas3d_pane(make_pane_value(new cljs.core.Keyword(null,"3d","3d",-1024035737))),faber.core.result_pane(make_pane_value(new cljs.core.Keyword(null,"result","result",1415092211))),faber.core.error_pane(make_pane_value(new cljs.core.Keyword(null,"error","error",-978969032)))], null);
 })(),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"wrap-props","wrap-props",-983244308),re_view.core.wrap_props], null));
 })], null),new cljs.core.Keyword(null,"react-keys","react-keys",-1618321002),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"docstring","docstring",879233117),null,new cljs.core.Keyword(null,"display-name","display-name",694513143),"core/right-pane"], null),new cljs.core.Keyword(null,"instance-keys","instance-keys",1299417647),null], null));
-faber.core.right_paneClass = the_class__26992__auto___50840;
+faber.core.right_paneClass = the_class__27590__auto___54996;
 
-faber.core.right_pane = re_view.core.factory(the_class__26992__auto___50840);
+faber.core.right_pane = re_view.core.factory(the_class__27590__auto___54996);
 faber.core.parse_result = (function faber$core$parse_result(res){
 var toolbar = re_db.d.get(new cljs.core.Keyword(null,"faber","faber",-1316193656),new cljs.core.Keyword(null,"stlbutton","stlbutton",-1508903376));
-var vec__50830 = (cljs.core.truth_(new cljs.core.Keyword(null,"error","error",-978969032).cljs$core$IFn$_invoke$arity$1(res))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"error","error",-978969032),res], null):(cljs.core.truth_(new cljs.core.Keyword(null,"3dmodel","3dmodel",135298134).cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"value","value",305978217).cljs$core$IFn$_invoke$arity$1(res)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"3d","3d",-1024035737),new cljs.core.Keyword(null,"value","value",305978217).cljs$core$IFn$_invoke$arity$1(res)], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"result","result",1415092211),new cljs.core.Keyword(null,"value","value",305978217).cljs$core$IFn$_invoke$arity$1(res)], null)
+var vec__54958 = (cljs.core.truth_(new cljs.core.Keyword(null,"error","error",-978969032).cljs$core$IFn$_invoke$arity$1(res))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"error","error",-978969032),res], null):(cljs.core.truth_(new cljs.core.Keyword(null,"3dmodel","3dmodel",135298134).cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"value","value",305978217).cljs$core$IFn$_invoke$arity$1(res)))?new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"3d","3d",-1024035737),new cljs.core.Keyword(null,"value","value",305978217).cljs$core$IFn$_invoke$arity$1(res)], null):new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"result","result",1415092211),new cljs.core.Keyword(null,"value","value",305978217).cljs$core$IFn$_invoke$arity$1(res)], null)
 ));
-var kind = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__50830,(0),null);
-var value = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__50830,(1),null);
+var kind = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54958,(0),null);
+var value = cljs.core.nth.cljs$core$IFn$_invoke$arity$3(vec__54958,(1),null);
 var right_pane = re_db.d.get(new cljs.core.Keyword(null,"faber","faber",-1316193656),new cljs.core.Keyword(null,"right-pane","right-pane",1762684259));
 cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["value=",value," kind=",kind], 0));
 
@@ -135,7 +135,7 @@ return faber.core.eval_str(code,(function (res){
 return faber.core.parse_result(res);
 }));
 });
-var the_class__26992__auto___50841 = re_view.core.class_STAR_(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"lifecycle-keys","lifecycle-keys",-1618460896),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("view","initial-state","view/initial-state",-2068231227),(function (_){
+var the_class__27590__auto___55001 = re_view.core.class_STAR_(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"lifecycle-keys","lifecycle-keys",-1618460896),new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword("view","initial-state","view/initial-state",-2068231227),(function (_){
 return new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"stl-blob","stl-blob",-17273097),null], null);
 }),new cljs.core.Keyword("view","did-mount","view/did-mount",914520155),(function (this$){
 return re_db.d.transact_BANG_(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword("db","add","db/add",235286841),new cljs.core.Keyword(null,"faber","faber",-1316193656),new cljs.core.Keyword(null,"stlbutton","stlbutton",-1508903376),this$], null)], null));
@@ -152,33 +152,33 @@ return (node.download = "model.stl");
 } else {
 return null;
 }
-}),new cljs.core.Keyword("view","render","view/render",-1412767573),(function faber$core$stlsavebutton(p__50833){
-var map__50834 = p__50833;
-var map__50834__$1 = (((((!((map__50834 == null))))?(((((map__50834.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__50834.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__50834):map__50834);
-var state = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__50834__$1,new cljs.core.Keyword("view","state","view/state",-1991815820));
+}),new cljs.core.Keyword("view","render","view/render",-1412767573),(function faber$core$stlsavebutton(p__54983){
+var map__54984 = p__54983;
+var map__54984__$1 = (((((!((map__54984 == null))))?(((((map__54984.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__54984.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__54984):map__54984);
+var state = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__54984__$1,new cljs.core.Keyword("view","state","view/state",-1991815820));
 return re_view.hiccup.core.element.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"a.link.f6.dim.ba.bw1.ph3.pv2.ma3.dib.purple#stlsavebutton","a.link.f6.dim.ba.bw1.ph3.pv2.ma3.dib.purple#stlsavebutton",-1708866294),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"style","style",-496642736),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"display","display",242065432),(cljs.core.truth_(new cljs.core.Keyword(null,"stl-blob","stl-blob",-17273097).cljs$core$IFn$_invoke$arity$1(cljs.core.deref(state)))?"inline-block":"none")], null)], null),"Save STL"], null),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"wrap-props","wrap-props",-983244308),re_view.core.wrap_props], null));
 })], null),new cljs.core.Keyword(null,"react-keys","react-keys",-1618321002),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"docstring","docstring",879233117),null,new cljs.core.Keyword(null,"display-name","display-name",694513143),"core/stlsavebutton"], null),new cljs.core.Keyword(null,"instance-keys","instance-keys",1299417647),null], null));
-faber.core.stlsavebuttonClass = the_class__26992__auto___50841;
+faber.core.stlsavebuttonClass = the_class__27590__auto___55001;
 
-faber.core.stlsavebutton = re_view.core.factory(the_class__26992__auto___50841);
-var the_class__26992__auto___50842 = re_view.core.class_STAR_(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"react-keys","react-keys",-1618321002),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"docstring","docstring",879233117),null,new cljs.core.Keyword(null,"display-name","display-name",694513143),"core/toolbar"], null),new cljs.core.Keyword(null,"lifecycle-keys","lifecycle-keys",-1618460896),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("view","render","view/render",-1412767573),(function faber$core$toolbar(){
+faber.core.stlsavebutton = re_view.core.factory(the_class__27590__auto___55001);
+var the_class__27590__auto___55002 = re_view.core.class_STAR_(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"react-keys","react-keys",-1618321002),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"docstring","docstring",879233117),null,new cljs.core.Keyword(null,"display-name","display-name",694513143),"core/toolbar"], null),new cljs.core.Keyword(null,"lifecycle-keys","lifecycle-keys",-1618460896),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("view","render","view/render",-1412767573),(function faber$core$toolbar(){
 return re_view.hiccup.core.element.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"a.f6.link.dim.ba.bw1.ph3.pv2.ma3.dib.purple","a.f6.link.dim.ba.bw1.ph3.pv2.ma3.dib.purple",-1357023328),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"on-click","on-click",1632826543),(function (){
 return faber.core.compile();
 })], null),"Run"], null),faber.core.stlsavebutton()], null),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"wrap-props","wrap-props",-983244308),re_view.core.wrap_props], null));
 })], null),new cljs.core.Keyword(null,"instance-keys","instance-keys",1299417647),null], null));
-faber.core.toolbarClass = the_class__26992__auto___50842;
+faber.core.toolbarClass = the_class__27590__auto___55002;
 
-faber.core.toolbar = re_view.core.factory(the_class__26992__auto___50842);
+faber.core.toolbar = re_view.core.factory(the_class__27590__auto___55002);
 faber.core.example = "\n  (model\n      (polyhedron [[0,0,0], [0,1,0], [1,0,0], [0,0,1]]\n                   [[0,2,1], [0,1,3], [1,2,3], [0,3,2]]))";
-var the_class__26992__auto___50843 = re_view.core.class_STAR_(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"react-keys","react-keys",-1618321002),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"docstring","docstring",879233117),"Root view for the page",new cljs.core.Keyword(null,"display-name","display-name",694513143),"core/main-page"], null),new cljs.core.Keyword(null,"lifecycle-keys","lifecycle-keys",-1618460896),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("view","render","view/render",-1412767573),(function faber$core$main_page(){
+var the_class__27590__auto___55003 = re_view.core.class_STAR_(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"react-keys","react-keys",-1618321002),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"docstring","docstring",879233117),"Root view for the page",new cljs.core.Keyword(null,"display-name","display-name",694513143),"core/main-page"], null),new cljs.core.Keyword(null,"lifecycle-keys","lifecycle-keys",-1618460896),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword("view","render","view/render",-1412767573),(function faber$core$main_page(){
 return re_view.hiccup.core.element.cljs$core$IFn$_invoke$arity$2(((cljs.core.not(re_db.d.get(new cljs.core.Keyword("faber.core","eval-state","faber.core/eval-state",219916951),new cljs.core.Keyword(null,"ready?","ready?",-105765697))))?"Loading...":new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.h-100","div.h-100",1804561247),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"h1.f1","h1.f1",1174523147),"Faber"], null),faber.core.toolbar(),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.monospace.f6.h-75","div.monospace.f6.h-75",423059594),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.bg-near-white.h-100.flex","div.bg-near-white.h-100.flex",-1668321888),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.h-100.w-50","div.h-100.w-50",790915212),faber.core.model_editor(faber.core.example)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,".w-50",".w-50",-356515952),faber.core.right_pane()], null)], null)], null)], null)),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"wrap-props","wrap-props",-983244308),re_view.core.wrap_props], null));
 })], null),new cljs.core.Keyword(null,"instance-keys","instance-keys",1299417647),null], null));
-faber.core.main_pageClass = the_class__26992__auto___50843;
+faber.core.main_pageClass = the_class__27590__auto___55003;
 
 /**
  * Root view for the page
  */
-faber.core.main_page = re_view.core.factory(the_class__26992__auto___50843);
+faber.core.main_page = re_view.core.factory(the_class__27590__auto___55003);
 if((typeof faber !== 'undefined') && (typeof faber.core !== 'undefined') && (typeof faber.core._ !== 'undefined')){
 } else {
 faber.core._ = shadow.cljs.bootstrap.browser.init(faber.core.c_state,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"path","path",-188191168),"/js/bootstrap",new cljs.core.Keyword(null,"load-on-init","load-on-init",337216877),new cljs.core.PersistentHashSet(null, new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Symbol(null,"faber.user","faber.user",659237491,null),"null"], null), null)], null),(function (){
