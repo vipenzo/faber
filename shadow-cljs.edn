@@ -10,7 +10,7 @@
                             :exclude    #{cljs.js}}
                 :browser   {:target           :browser
                             :output-dir       "docs/faber/js"
-                            :asset-path       "/js"
+                            :asset-path       "/faber/js"
                             :compiler-options {:optimizations :simple}
                             :modules          {:base {:entries [faber.core]}}
                             :devtools         {:http-root  "docs/faber"
