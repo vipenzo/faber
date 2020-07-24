@@ -5,14 +5,14 @@
  :source-paths ["src"]
  :nrepl        {:port 8703}
  :builds       {:bootstrap {:target     :bootstrap
-                            :output-dir "docs/js/bootstrap"
+                            :output-dir "js/bootstrap"
                             :entries    [faber.user]
                             :exclude    #{cljs.js}}
                 :browser   {:target           :browser
-                            :output-dir       "docs/js"
+                            :output-dir       "js"
                             :asset-path       "/js"
                             :compiler-options {:optimizations :simple}
                             :modules          {:base {:entries [faber.core]}}
-                            :devtools         {:http-root  "docs"
+                            :devtools         {:http-root  "."
                                                :http-port  8702
                                                :after-load faber.core/render}}}}
