@@ -32,8 +32,8 @@ scene.add(light);
 
 scene.add(ambient_light);
 
-return cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$2(faber.canvas3d.context,(function (p1__53360_SHARP_){
-return cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(p1__53360_SHARP_,new cljs.core.Keyword(null,"scene","scene",1523800415),scene),new cljs.core.Keyword(null,"light","light",1918998747),light),new cljs.core.Keyword(null,"ambient-light","ambient-light",1637901620),ambient_light);
+return cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$2(faber.canvas3d.context,(function (p1__52745_SHARP_){
+return cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(cljs.core.assoc.cljs$core$IFn$_invoke$arity$3(p1__52745_SHARP_,new cljs.core.Keyword(null,"scene","scene",1523800415),scene),new cljs.core.Keyword(null,"light","light",1918998747),light),new cljs.core.Keyword(null,"ambient-light","ambient-light",1637901620),ambient_light);
 }));
 });
 faber.canvas3d.init_context = (function faber$canvas3d$init_context(canvas){
@@ -64,11 +64,11 @@ scene.add(ambient_light);
 return cljs.core.reset_BANG_(faber.canvas3d.context,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"width","width",-384071477),new cljs.core.Keyword(null,"controls","controls",1340701452),new cljs.core.Keyword(null,"canvas","canvas",-1798817489),new cljs.core.Keyword(null,"renderer","renderer",336841071),new cljs.core.Keyword(null,"ambient-light","ambient-light",1637901620),new cljs.core.Keyword(null,"camera","camera",-1190348585),new cljs.core.Keyword(null,"light","light",1918998747),new cljs.core.Keyword(null,"height","height",1025178622),new cljs.core.Keyword(null,"scene","scene",1523800415)],[width,controls,canvas,renderer,ambient_light,camera,light,height,scene]));
 });
 faber.canvas3d.render = (function faber$canvas3d$render(){
-var map__53375 = cljs.core.deref(faber.canvas3d.context);
-var map__53375__$1 = (((((!((map__53375 == null))))?(((((map__53375.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__53375.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__53375):map__53375);
-var scene = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__53375__$1,new cljs.core.Keyword(null,"scene","scene",1523800415));
-var renderer = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__53375__$1,new cljs.core.Keyword(null,"renderer","renderer",336841071));
-var camera = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__53375__$1,new cljs.core.Keyword(null,"camera","camera",-1190348585));
+var map__52769 = cljs.core.deref(faber.canvas3d.context);
+var map__52769__$1 = (((((!((map__52769 == null))))?(((((map__52769.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__52769.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__52769):map__52769);
+var scene = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__52769__$1,new cljs.core.Keyword(null,"scene","scene",1523800415));
+var renderer = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__52769__$1,new cljs.core.Keyword(null,"renderer","renderer",336841071));
+var camera = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__52769__$1,new cljs.core.Keyword(null,"camera","camera",-1190348585));
 return renderer.render(scene,camera);
 });
 faber.canvas3d.animate = (function faber$canvas3d$animate(){
@@ -98,9 +98,9 @@ cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$c
 
 faber.canvas3d.new_scene();
 
-var map__53390_53461 = cljs.core.deref(faber.canvas3d.context);
-var map__53390_53462__$1 = (((((!((map__53390_53461 == null))))?(((((map__53390_53461.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__53390_53461.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__53390_53461):map__53390_53461);
-var scene_53463 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__53390_53462__$1,new cljs.core.Keyword(null,"scene","scene",1523800415));
+var map__52864_53053 = cljs.core.deref(faber.canvas3d.context);
+var map__52864_53054__$1 = (((((!((map__52864_53053 == null))))?(((((map__52864_53053.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__52864_53053.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.cljs$core$IFn$_invoke$arity$2(cljs.core.hash_map,map__52864_53053):map__52864_53053);
+var scene_53055 = cljs.core.get.cljs$core$IFn$_invoke$arity$2(map__52864_53054__$1,new cljs.core.Keyword(null,"scene","scene",1523800415));
 if(cljs.core.truth_(mesh)){
 cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["create scene",mesh], 0));
 
@@ -108,13 +108,13 @@ cljs.core.swap_BANG_.cljs$core$IFn$_invoke$arity$4(faber.canvas3d.context,cljs.c
 
 faber.canvas3d.make_stl_blob();
 
-scene_53463.add(mesh);
+scene_53055.add(mesh);
 } else {
 }
 
 return faber.canvas3d.animate();
 });
-var the_class__27590__auto___53464 = re_view.core.class_STAR_(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"lifecycle-keys","lifecycle-keys",-1618460896),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("view","did-mount","view/did-mount",914520155),(function (this$,_){
+var the_class__27652__auto___53073 = re_view.core.class_STAR_(new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"lifecycle-keys","lifecycle-keys",-1618460896),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword("view","did-mount","view/did-mount",914520155),(function (this$,_){
 var canvas = re_view.core.dom_node(this$);
 cljs.core.println.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2(["canvas3d did-mount. ",new cljs.core.Keyword("view","state","view/state",-1991815820).cljs$core$IFn$_invoke$arity$1(this$)], 0));
 
@@ -126,8 +126,8 @@ return faber.canvas3d.create_scene(new cljs.core.Keyword(null,"3dmodel","3dmodel
 }),new cljs.core.Keyword("view","render","view/render",-1412767573),(function faber$canvas3d$canvas3d(){
 return re_view.hiccup.core.element.cljs$core$IFn$_invoke$arity$2(new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"canvas#canvas3d.w-100.h-100","canvas#canvas3d.w-100.h-100",1834215452)], null),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"wrap-props","wrap-props",-983244308),re_view.core.wrap_props], null));
 })], null),new cljs.core.Keyword(null,"react-keys","react-keys",-1618321002),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"docstring","docstring",879233117),null,new cljs.core.Keyword(null,"display-name","display-name",694513143),"canvas3d/canvas3d"], null),new cljs.core.Keyword(null,"instance-keys","instance-keys",1299417647),null], null));
-faber.canvas3d.canvas3dClass = the_class__27590__auto___53464;
+faber.canvas3d.canvas3dClass = the_class__27652__auto___53073;
 
-faber.canvas3d.canvas3d = re_view.core.factory(the_class__27590__auto___53464);
+faber.canvas3d.canvas3d = re_view.core.factory(the_class__27652__auto___53073);
 
 //# sourceMappingURL=faber.canvas3d.js.map
