@@ -7,7 +7,10 @@
  :builds       {:bootstrap {:target     :bootstrap
                             :output-dir "js/bootstrap"
                             :entries    [faber.user]
-                            :exclude    #{cljs.js}}
+                            :exclude    #{cljs.js}
+                            :asset-path       "faber/js"
+                            }
+
                 :browser   {:target           :browser
                             :output-dir       "js"
                             :asset-path       "faber/js"
