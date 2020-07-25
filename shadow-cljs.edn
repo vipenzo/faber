@@ -8,7 +8,7 @@
                             :output-dir "js/bootstrap"
                             :entries    [faber.user]
                             :exclude    #{cljs.js}
-                            :asset-path       "faber/js"
+
                             }
 
                 :browser   {:target           :browser

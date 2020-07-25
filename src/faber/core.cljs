@@ -246,7 +246,7 @@
 
 (defonce _
          (boot/init c-state
-                    {:path         "/js/bootstrap"
+                    {:path         "js/bootstrap"
                      :load-on-init '#{faber.user}}
                     (fn []
                       (d/transact! [[:db/add ::eval-state :ready? true]]))))
