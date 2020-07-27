@@ -246,11 +246,7 @@
 
 (defonce _
          (boot/init c-state
-<<<<<<< HEAD
                     {:path         "/faber/js/bootstrap"
-=======
-                    {:path         "/js/bootstrap"
->>>>>>> fighting github pages 5
                      :load-on-init '#{faber.user}}
                     (fn []
                       (d/transact! [[:db/add ::eval-state :ready? true]]))))
