@@ -38,7 +38,7 @@
     *fn* (max *fn* 3)
     *fa* (max (/ 360 *fa*) 3)
     *fs* (max (Math/ceil (/ tau (Math/asin (/ *fs* radius)))) 3)
-    :default  8
+    :default  20
     )
   )
 
@@ -64,8 +64,8 @@
   (let [top (if top-r
               top-r
               bottom-r)
-        segs (calc-number-of-segments (max bottom-r top-r))]
-    (three/Mesh. (three/CylinderGeometry. top-r bottom-r h segs) default-material)))
+        segs (calc-number-of-segments (max bottom-r top))]
+    (three/Mesh. (three/CylinderGeometry. top bottom-r h segs) default-material)))
 
 (defn translate [mesh x y z]
   (set! (.-x (.-position mesh)) x)
@@ -93,6 +93,7 @@
 
 (defn csg-op
   ([f mesh_a mesh_b]
+   (println "csg-op mesh_a=" mesh_a " mesh_b=" mesh_b)
    (let [csg_a (ThreeBSP. mesh_a)
          csg_b (ThreeBSP. mesh_b)
          csg_res (f csg_a csg_b)
@@ -100,11 +101,12 @@
      (.computeVertexNormals (. res -geometry))
      res))
   ([op & meshes]
-   (println "csg-op meshes=" meshes " (and (seq? meshes) (> 1 (count meshes)))=" (and (seq? meshes) (> 1 (count meshes))))
+   (println "csg-op meshes=" meshes " (and (seq? meshes) (> (count meshes) 1))=" (and (seq? meshes) (> (count meshes) 1)))
    (cond
-     (and (seq? meshes) (> 1 (count meshes))) (reduce (fn [a b] (csg-op f a b)) meshes)
+     (and (seq? meshes) (> (count meshes) 1)) (reduce (fn [a b] (csg-op op a b)) meshes)
      (seq? meshes) (first meshes)
      :default meshes)))
+
 
 (defn difference [& args]
   (apply csg-op (fn [a b] (.subtract a b))  args))
@@ -115,6 +117,7 @@
 (defn union [& args]
   (apply csg-op (fn [a b] (.union a b))  args)
   )
+
 
 (defn v-from-js [v3]
   (let [{:keys [x y z]} (j/lookup v3)]

@@ -6,7 +6,10 @@
 (defmulti makemesh
           (fn [[form & args]]
             (println "multi makemesh form=" form " args=" args)
-            (if (keyword? form) form :list))
+            (cond (:hole form) :hole
+                  (vector? form) :compose
+                  (keyword? form) form
+                  :default :list))
             #_(cond
               (and (list? form) (nil? args) (keyword? (first form))) (first form)
               (list? form) :vector
@@ -22,7 +25,24 @@
 (defmethod makemesh :list [[& args]]
   (println ":list args=" args)
   ;(println ":list (map makemesh args)=" (map makemesh args))
-  (apply o3/union (map makemesh args)))
+  (if (> (count args) 1)
+    (apply o3/union (map makemesh args))
+    (makemesh (first args))))
+
+(defmethod makemesh :compose [[form & args]]
+  (println ":compose args=" args)
+  (let [[solids holes] ((juxt #(% false) #(% true))
+                        (group-by #(= :hole (first %)) args))
+        ufn (fn [l] (if (empty? l) nil (makemesh (apply list l))))
+        _ (println ":compose-2 solids=" solids " holes=" holes)
+        holes (ufn  holes)
+        solids (ufn solids)]
+    (println ":compose solids=" solids " holes=" holes)
+    (cond
+      (nil? holes) solids
+      (nil? solids) solids
+      :default (o3/difference solids holes))))
+
 
 (defmethod makemesh :union [[form & args]]
   (makemesh args))
@@ -97,6 +117,9 @@
 
 (defmethod makemesh :offset [[form options & block]]
   (o3/offset options  (apply makemesh block)))
+
+(defmethod makemesh :hole [[form & block]]
+  (apply makemesh block))
 
 
 (def pippo 34)

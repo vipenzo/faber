@@ -207,6 +207,12 @@
 (defn difference [ & block]
   `(:difference  ~@block))
 
+(defn compose [ & block]
+  `(:compose  ~@block))
+
+(defn hole [ & block]
+  `(:hole  ~@block))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; other
 

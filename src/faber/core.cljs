@@ -210,7 +210,7 @@
       (polyhedron [[0.5 1 1] [0.5 1 -1] [0.5 -1 1] [0.5 -1 -1] [-0.5 1 -1] [-0.5 1 1] [-0.5 -1 -1] [-0.5 -1 1]]
                    [[0 2 1] [2 3 1] [4 6 5] [6 7 5] [4 5 1] [5 0 1] [7 6 2] [6 3 2] [5 7 0] [7 2 0] [1 3 4] [3 6 4]]))")
 
-(def example "
+#_(def example "
   (model
       (polyhedron [[0,0,0], [0,1,0], [1,0,0], [0,0,1]]
                    [[0,2,1], [0,1,3], [1,2,3], [0,3,2]]))")
@@ -221,6 +221,17 @@
       (polyhedron [[  0,  0,  0 ] [ 10,  0,  0 ] [ 10,  7,  0 ] [  0,  7,  0 ] [  0,  0,  5 ] [ 10,  0,  5 ] [ 10,  7,  5 ] [  0,  7,  5 ]]
                    [[0,1,2,3] [4,5,1,0] [7,6,5,4] [5,6,2,1] [6,7,3,2] [7,4,0,3]]))")
 
+#_(def example "
+  (model (m/compose
+             (cube 2)
+             (m/hole (cylinder 1 3))))")
+
+(def example "(model (compose
+         (cube 2)
+         (hole (rotate [0 0 90 ] (cylinder 0.5 3)))
+         (hole (rotate [90 0 0 ] (cylinder 0.1 3)))
+         (hole (cylinder 0.2 3))
+         (cube 3 0.9 0.9)))")
 
 
 (defview main-page
@@ -246,7 +257,7 @@
 
 (defonce _
          (boot/init c-state
-                    {:path         "/faber/js/bootstrap"
+                    {:path         "/js/bootstrap"
                      :load-on-init '#{faber.user}}
                     (fn []
                       (d/transact! [[:db/add ::eval-state :ready? true]]))))

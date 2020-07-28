@@ -13,7 +13,7 @@
 
                 :browser   {:target           :browser
                             :output-dir       "js"
-                            :asset-path       "faber/js"
+                            :asset-path       "js"
                             :compiler-options {:optimizations :simple}
                             :modules          {:base {:entries [faber.core]}}
                             :devtools         {:http-root  "."
