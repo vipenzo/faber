@@ -12,7 +12,7 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "shadow-cljs": "^2.0.41",
-    "three": "^0.118.3",
+    "three": "^0.125.0",
     "three-js-csg": "^72.0.0",
     "three-orbitcontrols": "^2.110.3",
     "threejs-export-stl": "0.0.4"
